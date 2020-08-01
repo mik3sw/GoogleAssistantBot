@@ -42,8 +42,8 @@ I am online! --> http://t.me/PythonAndroidBot
 
 ### BOT FUNCTION
 
-- Benvenuto (messaggio di benvenuto)
-- Definisci/cerca --> fornisce la definizione da Wikipedia
+- Welcome message
+- Google cerca/search <something> (will send the definition from Wikipedia.org)
 
 
 ### BOT COMMANDS
