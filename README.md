@@ -27,7 +27,7 @@ LIST_OF_ADMINS = [0000, 1111]      # admins' telegram id (to perform admin comma
 ```
 
 ## What can i do?
-I am online! t.me/PythonAndroidBot
+I am online! --> http://t.me/PythonAndroidBot
 
 ### BOT QUESTIONS
 
