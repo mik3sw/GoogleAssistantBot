@@ -1,11 +1,11 @@
 # Google Assistant Bot
 
-[it]
+**[it]** - 
 Bot Gestionale e di benvenuto interamente in lingua italiana ed OPEN SOURCE
 Il Bot è stato realizzato per inserirlo nei gruppi facenti parte del network di [@AOSPitaliaNET](t.me\aospitaliaNET)
 Per personalizzarlo e renderlo operativo basterà modificare il file "config.py"
 
-[en]
+**[en]** - 
 This bot can manage your group, but only italian language is supported (for now)!
 This is only an imitation, it isn't the real Google Assistant and it has no AI.
 If you want to use this bot, just edit the "config.py" file
