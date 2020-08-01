@@ -18,6 +18,7 @@ If you want to use this bot, just edit the "config.py" file
 ```
 
 ## Configuration
+Edit file 'config.py' to run your personal bot
 
 ```
 bot_token = "Bot token here"       # bot token
