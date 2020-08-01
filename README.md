@@ -58,6 +58,14 @@ I am online! --> http://t.me/PythonAndroidBot
 - /pin
 - /annuncio <text here> - the bot will send and pin the message
 
+# ToDo
+
+- [x] ordered code
+- [x] improve commands performance/exception
+- [ ] settings command
+- [ ] integrate database and admin list
+- [ ] more languages
+- [ ] more commands
 
 dev: [@mike_2000](t.me/mike_2000)
 
