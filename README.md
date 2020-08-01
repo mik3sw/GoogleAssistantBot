@@ -2,7 +2,7 @@
 
 **[it]** - 
 Bot Gestionale e di benvenuto interamente in lingua italiana ed OPEN SOURCE
-Il Bot è stato realizzato per inserirlo nei gruppi facenti parte del network di [@AOSPitaliaNET](t.me\aospitaliaNET)
+Il Bot è stato realizzato per inserirlo nei gruppi facenti parte del network di [AOSPitaliaNET](https://t.me/aospitaliaNET)
 Per personalizzarlo e renderlo operativo basterà modificare il file "config.py"
 
 **[en]** - 
