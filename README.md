@@ -10,6 +10,15 @@ This bot can manage your group, but only italian language is supported (for now)
 This is only an imitation, it isn't the real Google Assistant and it has no AI.
 If you want to use this bot, just edit the "config.py" file
 
+## Dependencies
+```
+- python-telegram-bot
+- wikipedia
+- configparser
+```
+
+## Configuration
+
 ```
 bot_token = "Bot token here"       # bot token
 bot_username = "@username"         # telegram bot username
@@ -17,8 +26,9 @@ language = "it"                    # bot language, check 'strings.ini' file
 LIST_OF_ADMINS = [0000, 1111]      # admins' telegram id (to perform admin commands)
 ```
 
+## What can i do?
 
-## BOT QUESTIONS
+### BOT QUESTIONS
 
 - ok google/hey google
 - nexus 5x
@@ -29,24 +39,23 @@ LIST_OF_ADMINS = [0000, 1111]      # admins' telegram id (to perform admin comma
 - google curiosità
 
 
-## BOT FUNCTION
+### BOT FUNCTION
 
 - Benvenuto (messaggio di benvenuto)
 - Definisci/cerca --> fornisce la definizione da Wikipedia
 
 
-## BOT COMMANDS
+### BOT COMMANDS
 
-- /regole [mostra le regole del network]
-- /richiedi [richiedi funzione del bot]
-- /say [fai dire a google cio' che vuoi]
+- /regole - rules 
+- /say <text here>
 - /source [display source code]
-- /muta
-- /smuta
+- /muta - mute
+- /smuta - unmute
 - /ban
-- /unban
+- /unban (incoming)
 - /pin
-- /annuncio
+- /annuncio <text here> - the bot will send and pin the message
 
 
 dev: [@mike_2000](t.me/mike_2000)
