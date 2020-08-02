@@ -21,7 +21,7 @@ def main():
     # '/start' trigger 'commands.start.init' function
     # ===============================================
     dp.add_handler(CommandHandler("start", commands.start.init))
-    dp.add_handler(CommandHandler(["regole", "rules"], commands.regole.init))
+    dp.add_handler(CommandHandler(["regole", "rules"], commands.rules.init))
     dp.add_handler(CommandHandler("ban", commands.ban.init))
     dp.add_handler(CommandHandler(["help", "aiuto"], commands.help.init))
     dp.add_handler(CommandHandler("source", commands.source.init))
