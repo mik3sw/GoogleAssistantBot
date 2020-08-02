@@ -1,4 +1,4 @@
-__all__ = ["muta", "smuta", "help", "start", "regole", "ban",
-"io", "source", "fissa", "say", "annuncio"]
+__all__ = ["mute", "unmute", "help", "start", "rules", "ban",
+"io", "source", "pin", "say", "annuncio"]
 
 from commands import *
