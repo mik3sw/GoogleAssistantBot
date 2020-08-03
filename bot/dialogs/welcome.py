@@ -15,6 +15,5 @@ def init(update, context):
 			context.bot.send_message(update.message.chat_id, text=s.get('welcome_bot', config.language), parse_mode='HTML')
 
 		else:
-			update.message.reply_text(str(s.get('welcome', config.language)).format(
-								  username="@" + new.username,
-			                      chat_title=update.message.chat.title), reply_markup=reply_markup, parse_mode='HTML')
+			net = '<a href="t.me/aospitalianet">Network</a>'
+			update.message.reply_text(str(s.get('welcome', config.language)).format(new.username,update.message.chat.title, net), reply_markup=reply_markup, parse_mode='HTML')
