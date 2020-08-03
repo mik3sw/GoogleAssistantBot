@@ -45,3 +45,16 @@ def collaborators(func):
             return
         return func(update, context)
     return wrapped
+
+#see admins/creator automatically in a group
+def general_admin(func):
+    @wraps(func)
+    def wrapped(update, context):
+        user_id = update.effective_user
+        stat = context.bot.get_chat_member(update.message.chat_id, update.effective_user['id'])['status']
+        print(stat)
+        if stat not in config.TITLES:
+            print("Unauthorized access denied for {}.".format(user_id['id']))
+            return
+        return func(update, context)
+    return wrapped
