@@ -70,11 +70,10 @@ I am online! --> http://t.me/PythonAndroidBot
 
 # ToDo
 
-- [x] ordered code
+- [x] better code
 - [x] improve commands performance/exception
 - [ ] settings command
-- [ ] integrate database and admin list
-- [ ] more languages
+- [ ] more questions
 - [ ] more commands
 
 dev: [@mike_2000](t.me/mike_2000)
