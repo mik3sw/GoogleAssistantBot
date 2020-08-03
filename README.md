@@ -23,9 +23,17 @@ Edit file 'config.py' to run your personal bot
 ```
 bot_token = "Bot token here"       # bot token
 bot_username = "@username"         # telegram bot username
+bot_id = 000000000000              # telegram bot id
 language = "it"                    # bot language, check 'strings.ini' file
-LIST_OF_ADMINS = [0000, 1111]      # admins' telegram id (to perform admin commands)
+LIST_OF_ADMINS = [0000, 1111]      # admins' telegram id (to perform admin commands)(check utils/decorator.py to understand)
 ```
+
+This bot also need some permissions to work:
+- **can_restrict_members**
+- **can_delete_messages**
+- **can_pin_messages**
+
+(to check permission use /check command)
 
 ## What can i do?
 I am online! --> http://t.me/PythonAndroidBot
@@ -49,15 +57,16 @@ I am online! --> http://t.me/PythonAndroidBot
 
 ### BOT COMMANDS
 
-- /regole - rules 
-- /say <text here>
-- /source [display source code]
-- /muta - mute
-- /smuta - unmute
-- /ban
-- /unban (incoming)
-- /pin
-- /annuncio <text here> - the bot will send and pin the message
+- **rules** 
+- **say** <text here>
+- **source** [display source code]
+- **mute**
+- **unmute**
+- **ban**
+- **unban** (incoming)
+- **pin**
+- **annuncio** <text here> - the bot will send and pin the message
+- **check**
 
 # ToDo
 
