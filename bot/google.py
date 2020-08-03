@@ -32,6 +32,7 @@ def main():
     dp.add_handler(CommandHandler("say", commands.say.init))
     dp.add_handler(CommandHandler("annuncio", commands.annuncio.init))
     dp.add_handler(CommandHandler("source", commands.source.init))
+    dp.add_handler(CommandHandler("check", commands.check.init))
     # ===============================================
     
     
