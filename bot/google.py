@@ -6,6 +6,10 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import config, commands, dialogs
 from telegram import ChatPermissions
 from configparser import ConfigParser
+import os
+import sys
+from threading import Thread
+from utils import decorator
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
