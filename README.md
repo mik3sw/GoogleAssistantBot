@@ -18,14 +18,31 @@ If you want to use this bot, just edit the "config.py" file
 ```
 
 ## Configuration
-Edit file 'config.py' to run your personal bot
 
+Edit file 'config.py' to run your personal bot
 ```
 bot_token = "Bot token here"       # bot token
 bot_username = "@username"         # telegram bot username
 bot_id = 000000000000              # telegram bot id
 language = "it"                    # bot language, check 'strings.ini' file
 LIST_OF_ADMINS = [0000, 1111]      # admins' telegram id (to perform admin commands)(check utils/decorator.py to understand)
+```
+
+Edit 'strings.ini' to change or create a new personal translation of the bot and set it in config.language
+```
+[start]         # Start command
+it = ciao!      # italian
+en = hello!     # english
+es = Hola!      # spanish
+ru = Привет!    # russian
+```
+
+Edit 'settings.ini' to change some settings of the bot *(work in progress)*
+```
+[settings]
+
+# Blocks chinese text messages and new users (with chinese names)
+non_latin_filter = True   #or False
 ```
 
 This bot also need some permissions to work:
