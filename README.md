@@ -121,7 +121,8 @@ I am online! --> http://t.me/PythonAndroidBot
 
 ## Credits
 
-dev: [@mike_2000](t.me/mike_2000)
-main telegram group: [Google Pixel IT](t.me/googlepixelit)
+Main dev: [@mike_2000](https://t.me/mike_2000)
+
+Main telegram group: [Google Pixel IT](https://t.me/googlepixelit)
 
 Credits: http://github.com/mirkobrombin/pybotgram
