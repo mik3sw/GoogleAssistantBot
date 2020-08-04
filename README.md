@@ -1,5 +1,15 @@
 # Google Assistant Bot
 
+## Table of content
+- [Presentation](https://github.com/mik3sw/GoogleAssistantBot#Welcome)
+- [Dependencies](https://github.com/mik3sw/GoogleAssistantBot#Dependencies)
+- [Configuration](https://github.com/mik3sw/GoogleAssistantBot#Configuration)
+- [Run the bot](https://github.com/mik3sw/GoogleAssistantBot#Run-the-bot)
+- [What can i do?](https://github.com/mik3sw/GoogleAssistantBot#What-can-i-do)
+- [Credits](https://github.com/mik3sw/GoogleAssistantBot#Credits)
+
+## Welcome!
+
 **[it]** - 
 Bot Gestionale e di benvenuto interamente in lingua italiana ed OPEN SOURCE
 Il Bot è stato realizzato per inserirlo nei gruppi facenti parte del network di [AOSPitaliaNET](https://t.me/aospitaliaNET)
@@ -9,6 +19,7 @@ Per personalizzarlo e renderlo operativo basterà modificare il file "config.py"
 This bot can manage your group, but only italian language is supported (for now)!
 This is only an imitation, it isn't the real Google Assistant and it has no AI.
 If you want to use this bot, just edit the "config.py" file
+
 
 ## Dependencies
 ```
@@ -107,6 +118,8 @@ I am online! --> http://t.me/PythonAndroidBot
 - [ ] settings command
 - [ ] more questions
 - [ ] more commands
+
+## Credits
 
 dev: [@mike_2000](t.me/mike_2000)
 
