@@ -17,6 +17,20 @@ def main():
     updater = Updater(config.bot_token, use_context=True)
     dp = updater.dispatcher
 
+    # restart function 
+    # ===============================================
+    def stop_and_restart():
+        """Gracefully stop the Updater and replace the current process with a new one"""
+        updater.stop()
+        os.execl(sys.executable, sys.executable, *sys.argv)
+    
+    #only the owner of the bot can use restart command
+    @decorator.ownerbot  
+    def restart(update, context):
+        update.message.reply_text('<b>[SYSTEM]</b>\n\nThe bot is now restarting...', parse_mode='HTML')
+        Thread(target=stop_and_restart).start()
+    # ===============================================
+
     # commands and functions
     # '/start' trigger 'commands.start.init' function
     # ===============================================
@@ -33,6 +47,7 @@ def main():
     dp.add_handler(CommandHandler("annuncio", commands.annuncio.init))
     dp.add_handler(CommandHandler("source", commands.source.init))
     dp.add_handler(CommandHandler("check", commands.check.init))
+    dp.add_handler(CommandHandler(["restart", "r"], restart))
     # ===============================================
     
     
