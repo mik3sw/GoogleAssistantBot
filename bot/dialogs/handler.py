@@ -4,6 +4,7 @@ from utils import decorator
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from . import definisci
+from . import chat_controls
 
 
 
@@ -105,7 +106,7 @@ def curiosita(update, context):
 
 # DICHIARAZIONE FUNZIONI
 def init(update, context):
-
+    chat_controls.init(update, context)
     okgoogle(update, context)
     nexus5x(update, context)
     buongiorno(update, context)
@@ -116,4 +117,5 @@ def init(update, context):
     cosapensi(update, context)
     curiosita(update, context)
     definisci.init(update, context)
+    
     
