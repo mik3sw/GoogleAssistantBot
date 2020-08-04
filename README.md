@@ -52,6 +52,21 @@ This bot also need some permissions to work:
 
 (to check permission use /check command)
 
+## Run the bot
+
+Follow this steps:
+
+0) install [Python](www.python.org)
+1) clone this project
+2) edit configurations files
+3) run this commands
+```
+pip3 install -r requirements.txt
+
+python google.py
+
+```
+
 ## What can i do?
 I am online! --> http://t.me/PythonAndroidBot
 
