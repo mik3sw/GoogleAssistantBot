@@ -40,7 +40,7 @@ def main():
     # ===============================================
     dp.add_handler(CommandHandler("start", commands.start.init))
     dp.add_handler(CommandHandler(["regole", "rules"], commands.rules.init))
-    dp.add_handler(CommandHandler("ban", commands.ban.init))
+    dp.add_handler(CommandHandler(["ban","nuke"], commands.ban.init))
     dp.add_handler(CommandHandler(["help", "aiuto"], commands.help.init))
     dp.add_handler(CommandHandler("source", commands.source.init))
     dp.add_handler(CommandHandler(["io", "me"], commands.me.init))
