@@ -54,7 +54,7 @@ def general_admin(func):
         try:
             stat = context.bot.get_chat_member(update.message.chat_id, update.effective_user['id'])['status']
         except:
-            stat = context.bot.get_chat_member(update.callback_query.chat_id, update.callback_query.from_user['id'])['status']
+            stat = context.bot.get_chat_member(update.callback_query.chat_instance, update.callback_query.from_user['id'])['status']
         print(stat)
         if stat not in config.TITLES:
             print("Unauthorized access denied for {}.".format(user_id['id']))
