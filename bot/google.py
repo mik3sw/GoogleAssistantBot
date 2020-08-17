@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 import config, commands, dialogs
 from telegram import ChatPermissions
 from configparser import ConfigParser
