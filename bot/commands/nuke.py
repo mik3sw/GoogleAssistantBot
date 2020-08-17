@@ -3,7 +3,7 @@ import config
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 import time
 
-nuked = 0
+global nuked
 
 @decorator.general_admin
 #@decorator.cancellacomandi
