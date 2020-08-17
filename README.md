@@ -67,7 +67,7 @@ This bot also need some permissions to work:
 
 Follow this steps:
 
-0) install [Python](www.python.org)
+0) install [Python](https://www.python.org/)
 1) clone this project
 2) edit configurations files
 3) run this commands
