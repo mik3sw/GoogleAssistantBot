@@ -1,4 +1,5 @@
 from utils import decorator
+import config
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 import time
 @decorator.general_admin
@@ -17,19 +18,28 @@ def init(update, context):
         print("an error occurred [NUKE] function")
         update.message.reply_text("Errore durante la procedura di nuclearizzazione")
 
-@decorator.general_admin
+#@decorator.general_admin
 def launch(update, context):
+    #print("\n\n\nRICONOSCO L'ADMIN\n\n\n")
     query = update.callback_query
     query.answer()
     if query.data == 'nuke':
-        try:
-            n = 5
-            while n>0:
-                query.edit_message_caption(caption="<b>LANCIO AUTORIZZATO</b>\n\nDetonazione in <b>{}</b>".format(n), parse_mode='HTML')
-                time.sleep(1)
-                n = n-1
-            context.bot.delete_message(query.chat_id, query.message_id)
-            print("done")
-        except:
-            print('Error')
+        if query.from_user.id not in config.LIST_OF_ADMINS:
+            print('non admin')
+        else:
+            try:
+                n = 5
+                while n>0:
+                    query.edit_message_caption(caption="<b>LANCIO AUTORIZZATO</b>\n\nDetonazione in <b>{}</b>".format(n), parse_mode='HTML')
+                    time.sleep(1)
+                    n = n-1
+                context.bot.delete_message(update.callback_query.message.chat_id, update.callback_query.message.message_id)
+                print("done")
+                #https://i.pinimg.com/originals/6c/48/5e/6c485efad8b910e5289fc7968ea1d22f.gif
+                context.bot.send_video(update.message.chat_id, 
+                    video='https://i.pinimg.com/originals/6c/48/5e/6c485efad8b910e5289fc7968ea1d22f.gif', 
+                    caption='<b>UTENTE NUCLEARIZZATO CON SUCCESSO</b>', parse_mode='HTML')
+            except:
+                print('Error')
+                update.message.reply_text("Errore durante la procedura di nuclearizzazione")
 
