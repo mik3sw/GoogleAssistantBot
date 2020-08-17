@@ -30,4 +30,6 @@ def launch(update, context):
                 n = n-1
             context.bot.delete_message(query.chat_id, query.message_id)
             print("done")
+        except:
+            print('Error')
 
