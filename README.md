@@ -49,7 +49,9 @@ ru = Привет!    # russian
 ```
 
 Edit 'settings.ini' to change some settings of the bot *(work in progress)*
-**⚠️ Not Racism!**
+
+**⚠️ Not Racism! ⚠️**
+
 In several non-global groups a lot of userbots join with chinese names (and no username) only for **spamming/scamming**
 The filter is based on this logic:
 if user name contains chinese characters AND hasn't username --> ban
