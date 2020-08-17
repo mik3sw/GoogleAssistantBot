@@ -3,7 +3,7 @@
 ## Table of content
 - [Presentation](https://github.com/mik3sw/GoogleAssistantBot#Welcome)
 - [Dependencies](https://github.com/mik3sw/GoogleAssistantBot#Dependencies)
-- [Configuration](https://github.com/mik3sw/GoogleAssistantBot#Configuration)
+- [Configuration](https://github.com/mik3sw/GoogleAssistantBot#configuration-work-in-progress)
 - [Run the bot](https://github.com/mik3sw/GoogleAssistantBot#Run-the-bot)
 - [What can i do?](https://github.com/mik3sw/GoogleAssistantBot#What-can-i-do)
 - [Credits](https://github.com/mik3sw/GoogleAssistantBot#Credits)
