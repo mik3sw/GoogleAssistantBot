@@ -18,8 +18,9 @@ def init(update, context):
         print("an error occurred [NUKE] function")
         update.message.reply_text("Errore durante la procedura di nuclearizzazione")
 
-#@decorator.general_admin
+@decorator.general_admin
 def launch(update, context):
+    pass
     #print("\n\n\nRICONOSCO L'ADMIN\n\n\n")
     query = update.callback_query
     query.answer()
