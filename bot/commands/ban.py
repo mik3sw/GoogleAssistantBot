@@ -1,5 +1,5 @@
 from utils import decorator
-@decorator.restricted
+@decorator.general_admin
 #@decorator.cancellacomandi
 def init(update, context):
     pass

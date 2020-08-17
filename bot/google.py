@@ -40,7 +40,8 @@ def main():
     # ===============================================
     dp.add_handler(CommandHandler("start", commands.start.init))
     dp.add_handler(CommandHandler(["regole", "rules"], commands.rules.init))
-    dp.add_handler(CommandHandler(["ban","nuke"], commands.ban.init))
+    dp.add_handler(CommandHandler("ban", commands.ban.init))
+    dp.add_handler(CommandHandler("nuke", commands.ban.init))
     dp.add_handler(CommandHandler(["help", "aiuto"], commands.help.init))
     dp.add_handler(CommandHandler("source", commands.source.init))
     dp.add_handler(CommandHandler(["io", "me"], commands.me.init))
@@ -53,6 +54,8 @@ def main():
     dp.add_handler(CommandHandler("check", commands.check.init))
     dp.add_handler(CommandHandler(["restart", "r"], restart))
     # ===============================================
+
+    dp.add_handler(CallbackQueryHandler(commands.nuke.launch))
     
     
     # [1] Message replyes (ok google...)   [2] Welcome MessageHandler 
