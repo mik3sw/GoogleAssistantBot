@@ -110,6 +110,7 @@ I am online! --> http://t.me/PythonAndroidBot
 - **pin**
 - **annuncio** <text here> - the bot will send and pin the message
 - **check**
+- **nuke** (ban a user in a theatrical way)
 
 # ToDo
 
