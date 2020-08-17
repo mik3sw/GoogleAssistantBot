@@ -28,7 +28,7 @@ If you want to use this bot, just edit the "config.py" file
 - configparser
 ```
 
-## Configuration
+## Configuration (work in progress)
 
 Edit file 'config.py' to run your personal bot
 ```
@@ -54,7 +54,10 @@ Edit 'settings.ini' to change some settings of the bot *(work in progress)*
 
 In several non-global groups a lot of userbots join with chinese names (and no username) only for **spamming/scamming**
 The filter is based on this logic:
-if user name contains chinese characters AND hasn't username --> ban
+
+if user's first_name contains chinese characters **AND**[*] hasn't username --> ban
+
+[*] work in progress
 ```
 [settings]
 
