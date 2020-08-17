@@ -42,7 +42,8 @@ def launch(update, context):
             context.bot.send_video(update.callback_query.message.chat_id, 
                 video='https://i.pinimg.com/originals/6c/48/5e/6c485efad8b910e5289fc7968ea1d22f.gif', 
                 caption='<b>UTENTE NUCLEARIZZATO CON SUCCESSO</b>', parse_mode='HTML')
-            
+            global nuked
+            print(nuked)
             #context.bot.kick_chat_member(update.message.chat.id, nuked, timeout=None, until_date=None)
             #print(stronzo)
 
@@ -51,6 +52,7 @@ def launch(update, context):
             
 
 def set_nuke(stronzo):
-    global nuked = stronzo
+    global nuked 
+    nuked = stronzo
     print(nuked)
 
