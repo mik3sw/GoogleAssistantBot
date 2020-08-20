@@ -1,3 +1,3 @@
-__all__ = ["decorator"]
+__all__ = ["decorator", "chinese_characters", "arabic_characters"]
 
 from utils import *
