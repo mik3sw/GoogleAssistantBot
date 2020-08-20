@@ -3,7 +3,7 @@
 ## Table of content
 - [Presentation](https://github.com/mik3sw/GoogleAssistantBot#Welcome)
 - [Dependencies](https://github.com/mik3sw/GoogleAssistantBot#Dependencies)
-- [Configuration](https://github.com/mik3sw/GoogleAssistantBot#Configuration)
+- [Configuration](https://github.com/mik3sw/GoogleAssistantBot#configuration-work-in-progress)
 - [Run the bot](https://github.com/mik3sw/GoogleAssistantBot#Run-the-bot)
 - [What can i do?](https://github.com/mik3sw/GoogleAssistantBot#What-can-i-do)
 - [Credits](https://github.com/mik3sw/GoogleAssistantBot#Credits)
@@ -28,7 +28,7 @@ If you want to use this bot, just edit the "config.py" file
 - configparser
 ```
 
-## Configuration
+## Configuration (work in progress)
 
 Edit file 'config.py' to run your personal bot
 ```
@@ -49,6 +49,15 @@ ru = Привет!    # russian
 ```
 
 Edit 'settings.ini' to change some settings of the bot *(work in progress)*
+
+**⚠️ Not Racism! ⚠️**
+
+In several non-global groups a lot of userbots join with chinese names (and no username) only for **spamming/scamming**
+The filter is based on this logic:
+
+if user's first_name contains chinese characters **AND**[*] hasn't username --> ban
+
+[*] work in progress
 ```
 [settings]
 
@@ -67,7 +76,7 @@ This bot also need some permissions to work:
 
 Follow this steps:
 
-0) install [Python](www.python.org)
+0) install [Python](https://www.python.org/)
 1) clone this project
 2) edit configurations files
 3) run this commands
@@ -110,6 +119,7 @@ I am online! --> http://t.me/PythonAndroidBot
 - **pin**
 - **annuncio** <text here> - the bot will send and pin the message
 - **check**
+- **nuke** (ban a user in a theatrical way)
 
 # ToDo
 
