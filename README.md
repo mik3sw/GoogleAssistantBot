@@ -52,17 +52,28 @@ Edit 'settings.ini' to change some settings of the bot *(work in progress)*
 
 **⚠️ Not Racism! ⚠️**
 
-In several non-global groups a lot of userbots join with chinese names (and no username) only for **spamming/scamming**
+In several non-global groups a lot of userbots join with chinese/arabic names (and no username) only for **spamming/scamming**
 The filter is based on this logic:
 
-if user's first_name contains chinese characters **AND**[*] hasn't username --> ban
+if user's first_name contains chinese characters **AND** hasn't username --> ban
 
 [*] work in progress
 ```
-[settings]
+# settings about new users joined in a group
+[new_user]
 
-# Blocks chinese text messages and new users (with chinese names)
-non_latin_filter = True   #or False
+# don't allow chinese characters (True)
+chinese_characters = True
+# don't allow arabic characters (True)
+arabic_characters = True
+
+# settings and rules in-chat 
+[chat]
+
+# don't allow chinese characters (True)
+chinese_characters = True
+# don't allow arabic characters (True)
+arabic_characters = True
 ```
 
 This bot also need some permissions to work:
@@ -104,7 +115,10 @@ I am online! --> http://t.me/PythonAndroidBot
 ### BOT FUNCTION
 
 - Welcome message
-- Google cerca/search <something> (will send the definition from Wikipedia.org)
+- Google cerca/search <something> (will send the definition from Wikipedia.org)(only italian for now)
+- Can detect non-latin messages and users (chinese and arabic) 
+- Can detect spam links (work in progress)
+
 
 
 ### BOT COMMANDS
