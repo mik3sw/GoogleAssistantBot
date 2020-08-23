@@ -48,7 +48,7 @@ def main():
     # Admin commands
     # ===============================================
     dp.add_handler(CommandHandler("ban", commands.admin.ban.init))
-    dp.add_handler(CommandHandler("ban", commands.admin.unban.init))
+    dp.add_handler(CommandHandler("unban", commands.admin.unban.init))
     dp.add_handler(CommandHandler("nuke", commands.admin.nuke.init)) # nuke command message
     dp.add_handler(CallbackQueryHandler(commands.admin.nuke.launch)) # nuke command button
     dp.add_handler(CommandHandler(["muta", "mute"], commands.admin.mute.init))
