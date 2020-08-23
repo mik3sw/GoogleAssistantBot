@@ -1,4 +1,5 @@
 # Google Assistant Bot
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/83eccd6f31ca4cdebb5af4a2cea14337)](https://app.codacy.com/manual/mik3sw/GoogleAssistantBot?utm_source=github.com&utm_medium=referral&utm_content=mik3sw/GoogleAssistantBot&utm_campaign=Badge_Grade_Dashboard)
 [![Python3.7+](https://img.shields.io/badge/Python-3.7%2B-green.svg)](https://www.python.org/downloads)
 
 ## Table of content
