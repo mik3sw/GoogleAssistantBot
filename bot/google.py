@@ -4,9 +4,6 @@
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 import config, dialogs, commands
-from commands import admin, user
-from telegram import ChatPermissions
-from configparser import ConfigParser
 import os
 import sys
 from threading import Thread

@@ -1,6 +1,5 @@
 import wikipedia as wiki
-from datetime import datetime
-from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove, InlineKeyboardButton, InlineKeyboardMarkup)
+from telegram import (InlineKeyboardButton, InlineKeyboardMarkup)
 
 
 

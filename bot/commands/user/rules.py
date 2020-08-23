@@ -1,6 +1,4 @@
 from utils import decorator
-from configparser import ConfigParser
-import config
 import functions
 
 @decorator.cancellacomandi

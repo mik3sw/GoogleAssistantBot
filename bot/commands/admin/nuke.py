@@ -1,5 +1,4 @@
 from utils import decorator
-import config
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 import time
 

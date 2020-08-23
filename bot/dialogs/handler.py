@@ -1,8 +1,4 @@
 import random
-import config
-from utils import decorator
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from . import definisci
 from . import chat_controls
 from . import random_answer
@@ -19,7 +15,7 @@ def okgoogle(update, context):
 def nexus5x(update, context):
     if update.message.text is not None:
         if 'nexus 5x' in str(update.message.text).lower():
-            update.message.reply_text("Do you want some bootloop?".format(username=update.message.from_user.first_name),
+            update.message.reply_text("Do you want some bootloop?",
                              reply_to_message_id=update.message.message_id)
 
 

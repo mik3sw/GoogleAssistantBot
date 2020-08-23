@@ -1,9 +1,7 @@
 import config
-import utils
 import functions
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from configparser import ConfigParser
-import re
 
 def init(update, context):
 

@@ -1,7 +1,6 @@
-import config
 from utils import decorator
 from telegram import ChatPermissions
-import datetime
+
 
 #FUNZIONE SMUTA
 @decorator.restricted
