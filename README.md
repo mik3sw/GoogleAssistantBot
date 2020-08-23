@@ -1,4 +1,5 @@
 # Google Assistant Bot
+[![Python3.7+](https://img.shields.io/badge/Python-3.7%2B-green.svg)](https://www.python.org/downloads)
 
 ## Table of content
 - [Presentation](https://github.com/mik3sw/GoogleAssistantBot#Welcome)
