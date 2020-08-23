@@ -18,7 +18,7 @@ Il Bot è stato realizzato per inserirlo nei gruppi facenti parte del network di
 Per personalizzarlo e renderlo operativo basterà modificare il file "config.py"
 
 **[en]** - 
-This bot can manage your group, but only italian language is supported (for now)!
+This bot can manage your group, but only italian language is fully supported (for now)!
 This is only an imitation, it isn't the real Google Assistant and it has no AI.
 If you want to use this bot, just edit the "config.py" file
 
