@@ -3,7 +3,8 @@
 
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
-import config, commands, dialogs
+import config, dialogs, commands
+from commands import admin, user
 from telegram import ChatPermissions
 from configparser import ConfigParser
 import os
@@ -35,28 +36,36 @@ def main():
         Thread(target=stop_and_restart).start()
     # ===============================================
 
-    # commands and functions
-    # '/start' trigger 'commands.start.init' function
-    # ===============================================
-    dp.add_handler(CommandHandler("start", commands.start.init))
-    dp.add_handler(CommandHandler(["regole", "rules"], commands.rules.init))
-    dp.add_handler(CommandHandler("ban", commands.ban.init))
-    dp.add_handler(CommandHandler("nuke", commands.nuke.init))
-    dp.add_handler(CommandHandler(["help", "aiuto"], commands.help.init))
-    dp.add_handler(CommandHandler("source", commands.source.init))
-    dp.add_handler(CommandHandler(["io", "me"], commands.me.init))
-    dp.add_handler(CommandHandler(["muta", "mute"], commands.mute.init))
-    dp.add_handler(CommandHandler(["smuta", "unmute"], commands.unmute.init))
-    dp.add_handler(CommandHandler(["fissa", "pin"], commands.pin.init))
-    dp.add_handler(CommandHandler("say", commands.say.init))
-    dp.add_handler(CommandHandler("annuncio", commands.annuncio.init))
-    dp.add_handler(CommandHandler("source", commands.source.init))
-    dp.add_handler(CommandHandler("check", commands.check.init))
-    dp.add_handler(CommandHandler(["restart", "r"], restart))
+
+    # Commands and Functions
+    # '/start' trigger 'commands.user.start.init' function
     # ===============================================
 
-    dp.add_handler(CallbackQueryHandler(commands.nuke.launch))
-    
+    # Owner commands
+    # ===============================================
+    dp.add_handler(CommandHandler(["restart", "r"], restart))
+
+    # Admin commands
+    # ===============================================
+    dp.add_handler(CommandHandler("ban", commands.admin.ban.init))
+    dp.add_handler(CommandHandler("ban", commands.admin.unban.init))
+    dp.add_handler(CommandHandler("nuke", commands.admin.nuke.init)) # nuke command message
+    dp.add_handler(CallbackQueryHandler(commands.admin.nuke.launch)) # nuke command button
+    dp.add_handler(CommandHandler(["muta", "mute"], commands.admin.mute.init))
+    dp.add_handler(CommandHandler(["smuta", "unmute"], commands.admin.unmute.init))
+    dp.add_handler(CommandHandler(["fissa", "pin"], commands.admin.pin.init))
+    dp.add_handler(CommandHandler("say", commands.admin.say.init))
+    dp.add_handler(CommandHandler("annuncio", commands.admin.annuncio.init))
+    dp.add_handler(CommandHandler("check", commands.admin.check.init))
+
+    #User commands
+    # ===============================================
+    dp.add_handler(CommandHandler("start", commands.user.start.init))
+    dp.add_handler(CommandHandler(["regole", "rules"], commands.user.rules.init))
+    dp.add_handler(CommandHandler(["help", "aiuto"], commands.user.help.init))
+    dp.add_handler(CommandHandler("source", commands.user.source.init))
+    dp.add_handler(CommandHandler(["io", "me"], commands.user.me.init))
+
     
     # [1] Message replyes (ok google...)   [2] Welcome MessageHandler 
     # ===============================================

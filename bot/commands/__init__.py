@@ -1,4 +1,3 @@
-__all__ = ["mute", "unmute", "help", "start", "rules", "ban",
-"me", "source", "pin", "say", "annuncio", "check", "nuke"]
+__all__ = ["user", "admin"]
 
 from commands import *

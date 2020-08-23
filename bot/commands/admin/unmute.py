@@ -20,8 +20,8 @@ def init(update, context):
 						can_invite_users=True
 					)
       )
-      bot.send_message(update.message.chat_id, text="Utente [{}][{}][@{}] smutato con successo".format(update.message.reply_to_message.from_user.id, update.message.reply_to_message.from_user.first_name, update.message.reply_to_message.from_user.username))
+      bot.send_message(update.message.chat_id, text="User: [{}][{}][@{}]\nSuccesfully unmuted".format(update.message.reply_to_message.from_user.id, update.message.reply_to_message.from_user.first_name, update.message.reply_to_message.from_user.username))
 
     except:
       print("an error occurred [UNMUTE] function")
-      update.message.reply_text("Errore durante la procedura")
+      update.message.reply_text("Error during unmute operation")

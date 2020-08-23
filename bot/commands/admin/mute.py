@@ -19,7 +19,7 @@ def init(update, context):
 						can_invite_users=False
 					),
 					until_date=datetime.datetime.now() + datetime.timedelta(days=1))
-      bot.send_message(update.message.chat_id, text="Utente [{}][{}][@{}] mutato con successo".format(update.message.reply_to_message.from_user.id, update.message.reply_to_message.from_user.first_name, update.message.reply_to_message.from_user.username))
+      bot.send_message(update.message.chat_id, text="User: [{}][{}][@{}]\nSuccesfully muted".format(update.message.reply_to_message.from_user.id, update.message.reply_to_message.from_user.first_name, update.message.reply_to_message.from_user.username))
     except:
       print("an error occurred [MUTE] function")
-      update.message.reply_text("Errore durante la procedura")
+      update.message.reply_text("Error during unmute operation")

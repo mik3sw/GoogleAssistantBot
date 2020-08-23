@@ -1,10 +1,10 @@
 from utils import decorator
 from configparser import ConfigParser
 import config
+import functions
 
 @decorator.cancellacomandi
 def init(update, context):
-    s = ConfigParser();
-    s.read('strings.ini')
-    update.message.reply_text(s.get('regole', config.language), parse_mode='HTML')
+    txt = functions.general.txtReader('regole')
+    update.message.reply_text(txt, parse_mode='HTML')
     

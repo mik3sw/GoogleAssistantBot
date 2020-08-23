@@ -1,11 +1,10 @@
 from utils import decorator
 from configparser import ConfigParser
 import config
+import functions
 
 @decorator.general_admin
 def init(update, context):
-    s = ConfigParser();
-    s.read('strings.ini')
     p=context.bot.get_chat_member(update.message.chat_id, config.bot_id)
     res_mem = '❌'
     del_mess = '❌'
@@ -16,4 +15,5 @@ def init(update, context):
         del_mess = '✅'
     if p.can_pin_messages:
         pin_mess = '✅'
-    update.message.reply_text(str(s.get('check', config.language)).format(res_mem, del_mess, pin_mess), parse_mode='HTML')
+    txt = functions.general.txtReader('check')
+    update.message.reply_text(str(txt).format(res_mem, del_mess, pin_mess), parse_mode='HTML')

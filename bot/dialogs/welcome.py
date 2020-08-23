@@ -1,12 +1,11 @@
 import config
 import utils
+import functions
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from configparser import ConfigParser
 import re
 
 def init(update, context):
-	s = ConfigParser()
-	s.read('strings.ini')
 
 	r1 = ConfigParser()
 	r1.read('settings.ini')
@@ -22,13 +21,15 @@ def init(update, context):
 		# [2] arabic characters
 		# [3] (work in progress)
 		# ==========================
-		chinese = utils.chinese_characters.init(update, context, s, r1, new)
-		arabic = utils.arabic_characters.init(update, context, s, r1, new)
+		chinese = functions.chinese_characters.init(update, context, r1, new)
+		arabic = functions.arabic_characters.init(update, context, r1, new)
 		if chinese == True or arabic == True:
 			print('ban triggered on new user')
 		else:
 			if str(new.username).lower() == config.bot_username:
-				context.bot.send_message(update.message.chat_id, text=s.get('welcome_bot', config.language), parse_mode='HTML')
+				txt = functions.general.txtReader('welcome_bot')
+				context.bot.send_message(update.message.chat_id, text=txt, parse_mode='HTML')
 			else:
+				txt = functions.general.txtReader('welcome')
 				net = '<a href="t.me/aospitalianet">Network</a>'
-				update.message.reply_text(str(s.get('welcome', config.language)).format(new.username,update.message.chat.title, net), reply_markup=reply_markup, parse_mode='HTML')
+				update.message.reply_text(str(txt).format(new.username,update.message.chat.title, net), reply_markup=reply_markup, parse_mode='HTML')

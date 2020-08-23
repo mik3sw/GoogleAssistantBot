@@ -2,7 +2,7 @@
 from functools import wraps
 import config
 
-
+#only people from config.LIST_OF_ADMINS can perform that command
 def restricted(func):
     @wraps(func)
     def wrapped(update, context):
@@ -13,7 +13,7 @@ def restricted(func):
         return func(update, context)
     return wrapped
 
-#DELETE COMMANDS
+#delete command message (ex: /ban)
 def cancellacomandi(func):
     @wraps(func)
     def wrapped(update, context):
@@ -24,7 +24,8 @@ def cancellacomandi(func):
         return func(update, context)
     return wrapped
 
-#OWNERBOT
+# Owner of the bot
+#only people from config.OWNER_LIST can perform that command
 def ownerbot(func):
     @wraps(func)
     def wrapped(update, context):
@@ -35,18 +36,9 @@ def ownerbot(func):
         return func(update, context)
     return wrapped
 
-#COLLABORATORI
-def collaborators(func):
-    @wraps(func)
-    def wrapped(update, context):
-        user_id = update.effective_user
-        if user_id not in config.COLLABORATORS:
-            print("Unauthorized access denied for {}.".format(user_id))
-            return
-        return func(update, context)
-    return wrapped
 
-#see admins/creator automatically in a group
+# see admins/creator automatically in a group
+# only group's admin can perform that command/press that InlineButton
 def general_admin(func):
     @wraps(func)
     def wrapped(update, context):
