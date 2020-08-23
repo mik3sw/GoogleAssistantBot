@@ -123,24 +123,27 @@ I am online! --> http://t.me/PythonAndroidBot
 
 ### BOT COMMANDS
 
-- **rules** 
-- **say** <text here>
-- **source** [display source code]
-- **mute**
-- **unmute**
-- **ban**
-- **unban** (incoming)
-- **pin**
-- **annuncio** <text here> - the bot will send and pin the message
-- **check**
-- **nuke** (ban a user in a theatrical way)
+**ADMIN**
+- ban/unban
+- mute/unmute
+- pin
+- annuncio <text here> - the bot will send and pin the message
+- nuke (ban a user in a theatrical way)
+- check
+- say <text here> - the bot will say what you want
+
+**USER**
+- rules 
+- source [display source code]
+- me (receive personal telegram information, like id, username, name...)
+- help (display the list of available commands)
+- start (display start message)
 
 # ToDo
 
 - [x] better code
 - [x] improve commands performance/exception
-- [ ] settings command
-- [ ] more questions
+- [ ] settings command (got headache :()
 - [ ] more commands
 
 ## Credits
