@@ -1,4 +1,5 @@
 # Google Assistant Bot
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/2b80a4badc0f472186f735c3a1d0b726)](https://www.codacy.com/manual/mik3sw/GoogleAssistantBot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mik3sw/GoogleAssistantBot&amp;utm_campaign=Badge_Grade)
 [![Python3.7+](https://img.shields.io/badge/Python-3.7%2B-green.svg)](https://www.python.org/downloads)
 
 ## Table of content
@@ -17,7 +18,7 @@ Il Bot è stato realizzato per inserirlo nei gruppi facenti parte del network di
 Per personalizzarlo e renderlo operativo basterà modificare il file "config.py"
 
 **[en]** - 
-This bot can manage your group, but only italian language is supported (for now)!
+This bot can manage your group, but only italian language is fully supported (for now)!
 This is only an imitation, it isn't the real Google Assistant and it has no AI.
 If you want to use this bot, just edit the "config.py" file
 
