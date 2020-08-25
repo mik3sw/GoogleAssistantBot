@@ -1,18 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
-import config, dialogs, commands
+import config, dialogs, commands, errors
 import os
 import sys
 from threading import Thread
 from utils import decorator
-
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
-logger = logging.getLogger(__name__)
-def error(update, context):
-    logger.warning('Update "%s" genera errore: "%s"', update, context.error)
 
 
 def main():
@@ -37,7 +30,7 @@ def main():
     # Commands and Functions
     # '/start' trigger 'commands.user.start.init' function
     # ===============================================
-
+    
     # Owner commands
     # ===============================================
     dp.add_handler(CommandHandler(["restart", "r"], restart))
@@ -66,12 +59,13 @@ def main():
     
     # [1] Message replyes (ok google...)   [2] Welcome MessageHandler 
     # ===============================================
-    dp.add_handler(MessageHandler(Filters.text, dialogs.handler.init))             # [1]
+    dp.add_handler(MessageHandler(Filters.update.message, dialogs.handler.init))   # [1]
     dp.add_handler(MessageHandler(Filters.status_update, dialogs.welcome.init))    # [2]
     # ===============================================
 
     # Display errors and warnings 
-    dp.add_error_handler(error)
+    dp.add_error_handler(errors.log.init)
+    dp.add_error_handler(errors.callback_error.init)
     updater.start_polling()
     updater.idle()
 
