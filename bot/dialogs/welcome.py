@@ -30,4 +30,8 @@ def init(update, context):
 			else:
 				txt = functions.general.txtReader('welcome')
 				net = '<a href="t.me/aospitalianet">Network</a>'
-				update.message.reply_text(str(txt).format(new.username,update.message.chat.title, net), reply_markup=reply_markup, parse_mode='HTML')
+				try:
+					name = new.username
+				except:
+					name = new.first_name
+				update.message.reply_text(str(txt).format(name,update.message.chat.title, net), reply_markup=reply_markup, parse_mode='HTML')

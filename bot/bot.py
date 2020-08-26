@@ -47,6 +47,7 @@ def main():
     dp.add_handler(CommandHandler("say", commands.admin.say.init))
     dp.add_handler(CommandHandler("annuncio", commands.admin.annuncio.init))
     dp.add_handler(CommandHandler("check", commands.admin.check.init))
+    dp.add_handler(CommandHandler("del", commands.admin.delete.init))
 
     #User commands
     # ===============================================
@@ -59,8 +60,8 @@ def main():
     
     # [1] Message replyes (ok google...)   [2] Welcome MessageHandler 
     # ===============================================
-    dp.add_handler(MessageHandler(Filters.update.message, dialogs.handler.init))   # [1]
-    dp.add_handler(MessageHandler(Filters.status_update, dialogs.welcome.init))    # [2]
+    dp.add_handler(MessageHandler(Filters.status_update.new_chat_members, dialogs.welcome.init))    # [2]
+    dp.add_handler(MessageHandler(Filters.update.message, dialogs.handler.init))                    # [1]
     # ===============================================
 
     # Display errors and warnings 

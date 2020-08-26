@@ -1,5 +1,7 @@
 from telegram.error import (TelegramError, Unauthorized, BadRequest, TimedOut, ChatMigrated, NetworkError)
 import config
+import logging
+
 
 def init(update, context):
     err = '[error]'
@@ -30,9 +32,12 @@ def init(update, context):
         #error_message(update, context, err)
         # handle all other telegram related errors
     except AttributeError:
-        err = '[ERROR] Attribute error -  bad code'
+        err = '[ERROR] AttributeError -  bad code'
     finally:
         error_message(update, context, err)
 
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+logger = logging.getLogger(__name__)
 def error_message(update, context, err):
-    context.bot.send_message(chat_id=config.log_channel, text = err, parse_mode='HTML')
+    log = '\n[LOG] errore: {}'.format(context.error)
+    context.bot.send_message(chat_id=config.log_channel, text = err+log, parse_mode='HTML')
