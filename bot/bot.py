@@ -65,8 +65,8 @@ def main():
     # ===============================================
 
     # Display errors and warnings 
-    dp.add_error_handler(errors.log.init)
-    dp.add_error_handler(errors.callback_error.init)
+    dp.add_error_handler(errors.log.init)              #console log
+    dp.add_error_handler(errors.callback_error.init)   #channel log
     updater.start_polling()
     updater.idle()
 
