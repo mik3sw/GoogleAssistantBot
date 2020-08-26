@@ -60,7 +60,7 @@ def main():
     # [1] Message replyes (ok google...)   [2] Welcome MessageHandler 
     # ===============================================
     dp.add_handler(MessageHandler(Filters.update.message, dialogs.handler.init))   # [1]
-    dp.add_handler(MessageHandler(Filters.status_update, dialogs.welcome.init))    # [2]
+    dp.add_handler(MessageHandler(Filters.status_update.new_chat_members, dialogs.welcome.init))    # [2]
     # ===============================================
 
     # Display errors and warnings 
