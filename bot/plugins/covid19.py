@@ -3,6 +3,7 @@ import time
 import datetime
 import config
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from utils import decorator
 
 # Covid-19 data from 
 # https://github.com/ahmednafies/covid
@@ -30,7 +31,7 @@ def alarm(context):
     for x in config.covid_19_report:
         context.bot.send_message(chat_id = x, text=message_builder(), reply_markup = InlineKeyboardMarkup(keyboard), parse_mode= 'HTML')
 
-
+@decorator.ownerbot
 def set_timer(update, context):
     #chat_id = update.message.chat_id
     if 'job' in context.chat_data:
