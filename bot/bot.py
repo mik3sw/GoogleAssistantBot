@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
-import config, dialogs, commands, errors
+import config, dialogs, commands, errors, plugins, utils
 import os
 import sys
 from threading import Thread
@@ -34,6 +34,12 @@ def main():
     # Owner commands
     # ===============================================
     dp.add_handler(CommandHandler(["restart", "r"], restart))
+    
+    # Plugins
+    # ===============================================
+    # Covid-19 daily report [BETA]
+    dp.add_handler(CommandHandler("covid", plugins.covid19.set_timer,pass_args=False,pass_job_queue=True,pass_chat_data=True))
+    dp.add_handler(CommandHandler("uncovid", plugins.covid19.unset, pass_chat_data=True))
 
     # Admin commands
     # ===============================================
@@ -63,6 +69,9 @@ def main():
     dp.add_handler(MessageHandler(Filters.status_update.new_chat_members, dialogs.welcome.init))    # [2]
     dp.add_handler(MessageHandler(Filters.update.message, dialogs.handler.init))                    # [1]
     # ===============================================
+
+    # Plugins [BETA]
+    #dp.add_handler(CommandHandler('covid', plugins.covid19.daily_job, pass_job_queue=True))
 
     # Display errors and warnings 
     dp.add_error_handler(errors.log.init)              #console log
