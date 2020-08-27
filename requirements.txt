@@ -1,2 +1,2 @@
-python-telegram-bot
-wikipedia
+python-telegram-bot==12.3.0
+wikipedia==1.4.0

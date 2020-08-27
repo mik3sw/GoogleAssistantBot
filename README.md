@@ -128,6 +128,7 @@ I am online! --> http://t.me/PythonAndroidBot
 **ADMIN**
 - ban/unban
 - mute/unmute
+- del
 - pin
 - annuncio <text here> - the bot will send and pin the message
 - nuke (ban a user in a theatrical way)
