@@ -51,7 +51,7 @@ def main():
     dp.add_handler(CommandHandler(["smuta", "unmute"], commands.admin.unmute.init))
     dp.add_handler(CommandHandler(["fissa", "pin"], commands.admin.pin.init))
     dp.add_handler(CommandHandler("say", commands.admin.say.init))
-    dp.add_handler(CommandHandler("annuncio", commands.admin.annuncio.init))
+    dp.add_handler(CommandHandler(["saypin","annuncio"], commands.admin.annuncio.init ,pass_args=True))
     dp.add_handler(CommandHandler("check", commands.admin.check.init))
     dp.add_handler(CommandHandler("del", commands.admin.delete.init))
 

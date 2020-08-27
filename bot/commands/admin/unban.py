@@ -1,3 +1,6 @@
+from utils import decorator
+
+@decorator.general_admin
 def init(update, context):
     bot = context.bot
     chat = update.effective_message.chat_id

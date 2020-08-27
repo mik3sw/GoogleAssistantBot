@@ -2,7 +2,7 @@ from utils import decorator
 from telegram import ChatPermissions
 import datetime
 
-@decorator.restricted
+@decorator.general_admin
 @decorator.cancellacomandi
 def init(update, context):
     bot = context.bot

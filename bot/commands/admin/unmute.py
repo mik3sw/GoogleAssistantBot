@@ -3,7 +3,7 @@ from telegram import ChatPermissions
 
 
 #FUNZIONE SMUTA
-@decorator.restricted
+@decorator.general_admin
 #@decorator.cancellacomandi
 def init(update, context):
     bot = context.bot
