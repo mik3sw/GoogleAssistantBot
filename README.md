@@ -107,6 +107,7 @@ Check 'plugins' folder to see what is already implemented
 **Covid-19 daily report** [BETA]
 - /covid command to set a daily report [19:00]
 - /uncovid to unset the daily report
+
 The bot will send a message in every group/chat/channel setted in 'config.py' file
 
 ## What can i do?
