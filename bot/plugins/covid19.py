@@ -1,4 +1,4 @@
-import covid
+from covid19_script import Covid
 import time
 import datetime
 import config
@@ -10,16 +10,15 @@ from utils import decorator
 
 
 def message_builder():
-    c = covid.worldometers.covid.Covid()
-    test = c.get_status_by_country_name("italy")
+    c = Covid()
 
-    country = test['country']
-    confirmed = test['confirmed']
-    new_cases = test['new_cases']
-    deaths = test['deaths']
-    new_deaths = test['new_deaths']
-    critical = test['critical']
-    recovered = test['recovered']
+    country = 'Italia'
+    confirmed = c.totale_positivi
+    new_cases = c.nuovi_positivi
+    deaths = c.deceduti
+    new_deaths = c.nuovi_deceduti
+    critical = c.terapia_intensiva
+    recovered = c.dimessi_guariti
 
     message = '🦠 <b>[DAILY REPORT | COVID-19]</b> 🦠\n\nCountry: <b>{}</b> 🇮🇹\n\n⛑ Confirmed: <b>{}</b>\n⛑ New Cases: <b>{}</b>\n⚠️ Critical: <b>{}</b>\n\n✅ Recovered: <b>{}</b>\n\n☠️ Deaths: <b>{}</b>\n☠️ New deaths: <b>{}</b>\n'.format(country, confirmed, new_cases, critical, recovered, deaths, new_deaths)
     
@@ -27,7 +26,7 @@ def message_builder():
 
 
 def alarm(context):
-    keyboard = [[InlineKeyboardButton('Dati 📊', url = 'https://www.worldometers.info/coronavirus/country/italy/')],[InlineKeyboardButton('Info 🦠', url = 'http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?area=nuovoCoronavirus&id=5351&lingua=italiano&menu=vuoto')]]
+    keyboard = [[InlineKeyboardButton('Dati 📊', url = 'https://github.com/pcm-dpc/COVID-19')],[InlineKeyboardButton('Info 🦠', url = 'http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?area=nuovoCoronavirus&id=5351&lingua=italiano&menu=vuoto')]]
     for x in config.covid_19_report:
         context.bot.send_message(chat_id = x, text=message_builder(), reply_markup = InlineKeyboardMarkup(keyboard), parse_mode= 'HTML')
 
