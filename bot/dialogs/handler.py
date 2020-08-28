@@ -1,6 +1,5 @@
 import random
 from . import definisci
-from . import chat_controls
 from . import random_answer
 
 
@@ -81,8 +80,6 @@ def curiosita(update, context):
 
 
 def init(update, context):
-    chat_controls.arabic_characters(update, context)
-    chat_controls.chinese_characters(update, context)
     okgoogle(update, context)
     nexus5x(update, context)
     buongiorno(update, context)

@@ -34,14 +34,16 @@ def alarm(context):
 @decorator.ownerbot
 def set_timer(update, context):
     #chat_id = update.message.chat_id
+    h = int(context.args[0])
+    m = int(context.args[1])
+
     if 'job' in context.chat_data:
             old_job = context.chat_data['job']
             old_job.schedule_removal()
-    t = datetime.time(19, 00, 00)
+    t = datetime.time(h, m, 00)
     new_job = context.job_queue.run_daily(alarm, t, days=(0, 1, 2, 3, 4, 5, 6), context=None, name=None)
     context.chat_data['job'] = new_job
-
-    update.message.reply_text('Covid-19 report setted [DAILY][19:00]')
+    update.message.reply_text('Covid-19 report setted [DAILY][{}:{}]'.format(h, m))
 
 def unset(update, context):
     if 'job' not in context.chat_data:
