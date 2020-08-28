@@ -103,13 +103,21 @@ python google.py
 
 ## Plugins
 New Features incoming!
-Check 'plugins' folder to see what is already implemented
+Check 'plugins' folder to see what is already implemented. The bot will send a message in every group/chat/channel setted in 'config.py' file
 
 **Covid-19 daily report** [BETA]
-- /covid command to set a daily report [19:00]
+- /covid <h> <min> command to set a daily report [h:min]
 - /uncovid to unset the daily report
+  
+```
+# this plugins use another library -> covid
 
-The bot will send a message in every group/chat/channel setted in 'config.py' file
+pip3 install covid
+```
+
+**Weather daily report** [OPEN WEATHER API] [BETA]
+- /weather <h> <min> command to set a daily report [h:min] (only for italy at the moment)
+
 
 ## What can i do?
 I am online! --> http://t.me/PythonAndroidBot
