@@ -22,3 +22,7 @@ weather_api = 'abcdefghi0123456789'
 # =======================
 bad_words = ['word1', 'word2'] #messages with this words will be deleted
 # =======================
+
+# URL Filter
+# =======================
+url_denylist = ["amazn.co"]
