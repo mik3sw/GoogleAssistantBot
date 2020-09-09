@@ -1,5 +1,5 @@
 import config
-from telegram import Message, MessageEntity
+from telegram import MessageEntity
 
 
 def checkURL(update, context, url):
