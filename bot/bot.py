@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
+from telegram import MessageEntity
 import config, dialogs, commands, errors, plugins, functions
 import os
 import sys
@@ -69,6 +70,8 @@ def main():
     # Message Handlers 
     # ===============================================
     dp.add_handler(MessageHandler(Filters.status_update.new_chat_members, dialogs.welcome.init))    # Welcome
+    dp.add_handler(MessageHandler(Filters.text & (Filters.entity(MessageEntity.URL)                 # URL links filter
+                                                  | Filters.entity(MessageEntity.TEXT_LINK)), functions.urlfilter.init))
     dp.add_handler(MessageHandler(Filters.update.message, functions.bad_words.init))                # Bad words
     dp.add_handler(MessageHandler(Filters.update.message, dialogs.handler.init))                    # Dialogs
     # ===============================================
