@@ -11,4 +11,3 @@ def init(update, context):
     except:
         print("an error occurred [UNBAN] function")
         update.message.reply_text("Error during unban operation")
-    

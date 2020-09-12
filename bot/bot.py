@@ -1,8 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
+from telegram.ext import (
+    Updater,
+    CommandHandler,
+    MessageHandler,
+    Filters,
+    CallbackQueryHandler
+    )
 from telegram import MessageEntity
-import config, dialogs, commands, errors, plugins, functions
+import config, dialogs, errors, plugins, functions
+from commands import index
 import os
 import sys
 from threading import Thread
@@ -12,71 +19,53 @@ from utils import decorator
 def main():
     updater = Updater(config.bot_token, use_context=True)
     dp = updater.dispatcher
+    function = dp.add_handler
 
-    # restart function 
+    # restart function
     # ===============================================
     def stop_and_restart():
         """Gracefully stop the Updater and replace the current process with a new one"""
         updater.stop()
         os.execl(sys.executable, sys.executable, *sys.argv)
-    
+
     #only the owner of the bot can use restart command
-    @decorator.ownerbot  
+    @decorator.ownerbot
     def restart(update, context):
         update.message.reply_text('<b>[SYSTEM]</b>\n\nThe bot is now restarting...', parse_mode='HTML')
         Thread(target=stop_and_restart).start()
     # ===============================================
 
-
     # Commands and Functions
     # '/start' trigger 'commands.user.start.init' function
     # ===============================================
-    
+
     # Owner commands
     # ===============================================
-    dp.add_handler(CommandHandler(["restart", "r"], restart))
-    
+    function(CommandHandler(["restart", "r"], restart))
+
     # Plugins [BETA]
     # ===============================================
-    # Covid-19 daily report [BETA]
-    dp.add_handler(CommandHandler("covid", plugins.covid19.set_timer,pass_args=True,pass_job_queue=True,pass_chat_data=True))
-    dp.add_handler(CommandHandler("uncovid", plugins.covid19.unset, pass_chat_data=True))
     # Weather daily report [BETA]
-    dp.add_handler(CommandHandler("weather", plugins.weather.init,pass_args=True,pass_job_queue=True,pass_chat_data=True)) 
+    function(CommandHandler("weather", plugins.weather.init,pass_args=True,pass_job_queue=True,pass_chat_data=True))
 
     # Admin commands
     # ===============================================
-    dp.add_handler(CommandHandler("ban", commands.admin.ban.init))
-    dp.add_handler(CommandHandler("unban", commands.admin.unban.init))
-    dp.add_handler(CommandHandler("nuke", commands.admin.nuke.init)) # nuke command message
-    dp.add_handler(CallbackQueryHandler(commands.admin.nuke.launch)) # nuke command button
-    dp.add_handler(CommandHandler(["muta", "mute"], commands.admin.mute.init))
-    dp.add_handler(CommandHandler(["smuta", "unmute"], commands.admin.unmute.init))
-    dp.add_handler(CommandHandler(["fissa", "pin"], commands.admin.pin.init))
-    dp.add_handler(CommandHandler("say", commands.admin.say.init))
-    dp.add_handler(CommandHandler(["saypin","annuncio"], commands.admin.annuncio.init ,pass_args=True))
-    dp.add_handler(CommandHandler("check", commands.admin.check.init))
-    dp.add_handler(CommandHandler("del", commands.admin.delete.init))
+    index.admin_commands(dp)
 
     #User commands
     # ===============================================
-    dp.add_handler(CommandHandler("start", commands.user.start.init))
-    dp.add_handler(CommandHandler(["regole", "rules"], commands.user.rules.init))
-    dp.add_handler(CommandHandler(["help", "aiuto"], commands.user.help.init))
-    dp.add_handler(CommandHandler("source", commands.user.source.init))
-    dp.add_handler(CommandHandler(["io", "me"], commands.user.me.init))
+    index.user_commands(dp)
 
-    
-    # Message Handlers 
+    # Message Handlers
     # ===============================================
-    dp.add_handler(MessageHandler(Filters.status_update.new_chat_members, dialogs.welcome.init))    # Welcome
-    dp.add_handler(MessageHandler(Filters.text & (Filters.entity(MessageEntity.URL)                 # URL links filter
+    function(MessageHandler(Filters.status_update.new_chat_members, dialogs.welcome.init))    # Welcome
+    function(MessageHandler(Filters.text & (Filters.entity(MessageEntity.URL)                 # URL links filter
                                                   | Filters.entity(MessageEntity.TEXT_LINK)), functions.urlfilter.init))
-    dp.add_handler(MessageHandler(Filters.update.message, functions.bad_words.init))                # Bad words
-    dp.add_handler(MessageHandler(Filters.update.message, dialogs.handler.init))                    # Dialogs
+    function(MessageHandler(Filters.update.message, functions.bad_words.init))                # Bad words
+    function(MessageHandler(Filters.update.message, dialogs.handler.init))                    # Dialogs
     # ===============================================
 
-    # Display errors and warnings 
+    # Display errors and warnings
     dp.add_error_handler(errors.log.init)              #console log
     dp.add_error_handler(errors.callback_error.init)   #channel log
     updater.start_polling()

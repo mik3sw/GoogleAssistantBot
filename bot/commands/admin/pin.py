@@ -1,5 +1,4 @@
 from utils import decorator
- 
 
 @decorator.general_admin
 def init(update, context):
