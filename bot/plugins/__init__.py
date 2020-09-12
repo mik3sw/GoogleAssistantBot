@@ -1,3 +1,3 @@
-__all__ = ["covid19","weather", "covid19_script"]
+__all__ = ["weather"]
 
 from plugins import *

@@ -90,5 +90,3 @@ def init(update, context):
     cosapensi(update, context)
     curiosita(update, context)
     definisci.init(update, context)
-    
-    

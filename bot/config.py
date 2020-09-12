@@ -13,7 +13,6 @@ TITLES = ['creator', 'administrator'] #do not change
 
 # Plugins
 # =======================
-covid_19_report = [-00000000000, -111111111]
 weather_report = [-00000000000, -111111111]
 weather_api = 'abcdefghi0123456789'
 # =======================
