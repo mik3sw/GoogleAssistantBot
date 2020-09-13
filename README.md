@@ -105,15 +105,10 @@ python google.py
 New Features incoming!
 Check 'plugins' folder to see what is already implemented. The bot will send a message in every group/chat/channel setted in 'config.py' file
 
-**Covid-19 daily report** [BETA]
-- /covid <h> <min> command to set a daily report [h:min]
-- /uncovid to unset the daily report
-  
-```
-# this plugins use another library -> covid
-
-pip3 install covid
-```
+~~**Covid-19 daily report** [BETA][DELETED]~~
+- ~~/covid <h> <min> command to set a daily report [h:min]~~
+- ~~/uncovid to unset the daily report~~
+ 
 
 **Weather daily report** [OPEN WEATHER API] [BETA]
 - /weather <h> <min> command to set a daily report [h:min] (only for italy at the moment)
@@ -137,8 +132,10 @@ I am online! --> http://t.me/PythonAndroidBot
 
 - Welcome message
 - Google cerca/search <something> (will send the definition from Wikipedia.org)(only italian for now)
-- Can detect non-latin messages and users (chinese and arabic) 
-- Can detect spam links (work in progress)
+- Can detect non-latin messages and users (chinese and arabic)
+- Can detect blacklisted words **(work in progress)**
+- Can detect Amazon ref links **(untested)**
+- Can detect spam links **(work in progress)**
 
 
 
@@ -165,7 +162,11 @@ I am online! --> http://t.me/PythonAndroidBot
 
 - [x] better code
 - [x] improve commands performance/exception
-- [ ] settings command (got headache :()
+- [ ] blacklist
+- [ ] community management
+- [ ] temp ban/mute
+- [ ] night mode
+- [ ] settings command (got headache)
 - [ ] more commands
 
 ## Credits
