@@ -1,2 +1,2 @@
-__all__ = ["general", "arabic_characters", "chinese_characters", "bad_words", "urlfilter"]
+__all__ = ["general", "arabic_characters", "chinese_characters"]
 from functions import *

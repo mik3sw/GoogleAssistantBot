@@ -1,3 +1,3 @@
-__all__ = ["handler", "definisci", "welcome"]
+__all__ = ["welcome", "misc", "rules", "main"]
 
 from dialogs import *

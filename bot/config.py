@@ -24,4 +24,4 @@ bad_words = ['word1', 'word2'] #messages with this words will be deleted
 
 # URL Filter
 # =======================
-url_denylist = ["amzn.to"]
+url_denylist = ["amzn.to", "t.me"]

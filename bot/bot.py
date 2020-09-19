@@ -9,6 +9,7 @@ from telegram.ext import (
     )
 from telegram import MessageEntity
 import config, dialogs, errors, plugins, functions
+from dialogs import misc, rules
 from commands import index
 import os
 import sys
@@ -35,35 +36,28 @@ def main():
         Thread(target=stop_and_restart).start()
     # ===============================================
 
-    # Commands and Functions
-    # '/start' trigger 'commands.user.start.init' function
-    # ===============================================
-
     # Owner commands
     # ===============================================
     function(CommandHandler(["restart", "r"], restart))
 
     # Plugins [BETA]
-    # ===============================================
+    # ===========================
     # Weather daily report [BETA]
     function(CommandHandler("weather", plugins.weather.init,pass_args=True,pass_job_queue=True,pass_chat_data=True))
 
     # Admin commands
-    # ===============================================
+    # ==============
     index.admin_commands(dp)
 
     #User commands
-    # ===============================================
+    # ============
     index.user_commands(dp)
 
     # Message Handlers
-    # ===============================================
+    # ================
     function(MessageHandler(Filters.status_update.new_chat_members, dialogs.welcome.init))    # Welcome
-    function(MessageHandler(Filters.text & (Filters.entity(MessageEntity.URL)                 # URL links filter
-                                                  | Filters.entity(MessageEntity.TEXT_LINK)), functions.urlfilter.init))
-    function(MessageHandler(Filters.update.message, functions.bad_words.init))                # Bad words
-    function(MessageHandler(Filters.update.message, dialogs.handler.init))                    # Dialogs
-    # ===============================================
+    function(MessageHandler(Filters.update.message, dialogs.main.init))                    # Dialogs and chat controls
+    # ================
 
     # Display errors and warnings
     dp.add_error_handler(errors.log.init)              #console log

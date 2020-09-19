@@ -1,4 +1,4 @@
-# Google Assistant Bot [Currently Untested]
+# Google Assistant Bot
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/2b80a4badc0f472186f735c3a1d0b726)](https://www.codacy.com/manual/mik3sw/GoogleAssistantBot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mik3sw/GoogleAssistantBot&amp;utm_campaign=Badge_Grade)
 [![Python3.7+](https://img.shields.io/badge/Python-3.7%2B-green.svg)](https://www.python.org/downloads)
 
@@ -133,9 +133,9 @@ I am online! --> http://t.me/PythonAndroidBot
 - Welcome message
 - Google cerca/search <something> (will send the definition from Wikipedia.org)(only italian for now)
 - Can detect non-latin messages and users (chinese and arabic)
-- Can detect blacklisted words **(work in progress)**
-- Can detect Amazon ref links **(untested)**
-- Can detect spam links **(work in progress)**
+- Can detect blacklisted words (working)
+- Can detect Amazon ref links (and other links)
+- Can detect telegram spam links (working)
 
 
 
