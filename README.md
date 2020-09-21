@@ -15,25 +15,32 @@
 
 **[it]** - 
 Bot Gestionale e di benvenuto interamente in lingua italiana ed OPEN SOURCE
-Il Bot è stato realizzato per inserirlo nei gruppi facenti parte del network di [AOSPitaliaNET](https://t.me/aospitaliaNET)
-Per personalizzarlo e renderlo operativo basterà modificare il file "config.py"
+Il Bot è stato realizzato per essere inserito nei gruppi facenti parte del network di [AOSPitaliaNET](https://t.me/aospitaliaNET)
+(questo significa che è personalizzato secondo le esigenze dei miei gruppi)
+Per personalizzarlo e renderlo operativo basterà modificare il file "config.py", "strings.ini" i file presenti nella cartella "dialogs"
 
 **[en]** - 
 This bot can manage your group, but only italian language is fully supported (for now)!
 This is only an imitation, it isn't the real Google Assistant and it has no AI.
-If you want to use this bot, just edit the "config.py" file
+If you want to use this bot, just edit "config.py", "strings.ini" and files in "dialogs" folder
 
 
 ## Dependencies
 ```
 - python-telegram-bot
 - wikipedia
-- configparser
 ```
 
 ## Configuration (work in progress)
 
-Edit file 'config.py' to run your personal bot
+This bot needs some permissions to work:
+- **can_restrict_members**
+- **can_delete_messages**
+- **can_pin_messages**
+
+(to check permission use /check command)
+
+**Edit file 'config.py' to run your personal bot**
 ```
 bot_token = "Bot token here"       # bot token
 bot_username = "@username"         # telegram bot username
@@ -42,7 +49,7 @@ language = "it"                    # bot language, check 'strings.ini' file
 LIST_OF_ADMINS = [0000, 1111]      # admins' telegram id (to perform admin commands)(check utils/decorator.py to understand)
 ```
 
-Edit 'strings.ini' to change or create a new personal translation of the bot and set it in config.language
+**Edit 'strings.ini' to change or create a new personal translation of the bot and set it in config.language**
 ```
 [start]         # Start command
 it = ciao!      # italian
@@ -51,14 +58,12 @@ es = Hola!      # spanish
 ru = Привет!    # russian
 ```
 
-Edit 'settings.ini' to change some settings of the bot *(work in progress)*
+**Edit 'settings.ini' to change some settings of the bot** *(work in progress)*
 
 **⚠️ Not Racism! ⚠️**
-
 In several non-global groups a lot of userbots join with chinese/arabic names (and no username) only for **spamming/scamming**
-The filter is based on this logic:
 
-if user's first_name contains chinese characters **AND** hasn't username --> ban
+The filter is based on this logic: if user's first_name contains chinese characters **AND** hasn't username --> ban
 
 [*] work in progress
 ```
@@ -69,22 +74,7 @@ if user's first_name contains chinese characters **AND** hasn't username --> ban
 chinese_characters = True
 # don't allow arabic characters (True)
 arabic_characters = True
-
-# settings and rules in-chat 
-[chat]
-
-# don't allow chinese characters (True)
-chinese_characters = True
-# don't allow arabic characters (True)
-arabic_characters = True
 ```
-
-This bot also need some permissions to work:
-- **can_restrict_members**
-- **can_delete_messages**
-- **can_pin_messages**
-
-(to check permission use /check command)
 
 ## Run the bot
 
@@ -162,12 +152,13 @@ I am online! --> http://t.me/PythonAndroidBot
 
 - [x] better code
 - [x] improve commands performance/exception
+- [x] blacklisted words/urls 
+- [ ] more in-chat controls
 - [ ] blacklist
 - [ ] community management
 - [ ] temp ban/mute
 - [ ] night mode
 - [ ] settings command (got headache)
-- [ ] more commands
 
 ## Credits
 
