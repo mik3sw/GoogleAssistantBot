@@ -79,11 +79,12 @@ def curiosita(update, context):
                              reply_to_message_id=update.message.message_id, parse_mode='HTML')
 
 def mercatino(update, context):
-    words = ["vendo", "qualcuno vende"]
-    for x in words:
-        if x in str(update.message.text).lower():
-            context.bot.delete_message(update.message.chat_id, update.message.message_id)
-            context.bot.send_message(update.message.chat_id, text='Ciao <a href="tg://user?id={}\">{}</a>!\nHo cancellato il tuo messaggio perchè <b>sembra che tu stia cercando o vendendo qualcosa</b> all\'interno del gruppo.\nPer questo abbiamo un gruppo dedicato!\n\nEccolo qua: t.me/aospitaliashop\n'.format(update.message.from_user.id, update.message.from_user.first_name), parse_mode = 'HTML')
+    if (update.message.text is not None) and (update.message.chat_id != -1001160935294):
+        words = ["vendo", "qualcuno vende"]
+        for x in words:
+            if x in str(update.message.text).lower():
+                context.bot.delete_message(update.message.chat_id, update.message.message_id)
+                context.bot.send_message(update.message.chat_id, text='Ciao <a href="tg://user?id={}\">{}</a>!\nHo cancellato il tuo messaggio perchè <b>sembra che tu stia cercando o vendendo qualcosa</b> all\'interno del gruppo.\nPer questo abbiamo un gruppo dedicato!\n\nEccolo qua: t.me/aospitaliashop\n'.format(update.message.from_user.id, update.message.from_user.first_name), parse_mode = 'HTML')
 
 
 
