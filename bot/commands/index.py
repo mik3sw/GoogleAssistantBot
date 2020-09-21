@@ -18,6 +18,7 @@ def admin_commands(dp):
     function(CMH("ban", commands.admin.ban.init))
     function(CMH("unban", commands.admin.unban.init))
     function(CMH("nuke", commands.admin.nuke.init)) # nuke command message
+    function(CQH(commands.admin.night.unsilence_button, pattern='unsilence_button'))
     function(CQH(commands.admin.nuke.launch)) # nuke command button
     function(CMH(["muta", "mute"], commands.admin.mute.init))
     function(CMH(["smuta", "unmute"], commands.admin.unmute.init))
@@ -26,3 +27,6 @@ def admin_commands(dp):
     function(CMH(["saypin","annuncio"], commands.admin.annuncio.init ,pass_args=True))
     function(CMH("check", commands.admin.check.init))
     function(CMH("del", commands.admin.delete.init))
+    function(CMH(["notte", "night", "silenzio", "silence"], commands.admin.night.init))
+    
+    

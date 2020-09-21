@@ -1,4 +1,4 @@
-google_curiosita = {1: "il mio schiavo sviuppatore ha 19 anni",
+google_curiosita = {1: "il mio schiavo sviuppatore ha 20 anni",
                     2: "Spoiler: parli con un bot perchè non hai amici",
                     3: "Non puoi leccarti il gomito, a meno che non ti stacchi il braccio",
                     4: "Non puoi immaginare un colore che non esiste, ma io si",
