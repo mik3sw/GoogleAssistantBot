@@ -4,6 +4,7 @@ import logging
 
 
 def init(update, context):
+    txt = update.message.text
     err = '[error]'
     try:
         raise context.error
@@ -33,11 +34,13 @@ def init(update, context):
         # handle all other telegram related errors
     except AttributeError:
         err = '[ERROR] AttributeError -  bad code'
+    except TypeError:
+        err = '[ERROR] TypeError - Unknown'
     finally:
-        error_message(update, context, err)
+        error_message(update, context, err, txt)
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
-def error_message(update, context, err):
+def error_message(update, context, err, txt):
     log = '\n[LOG] errore: {}'.format(context.error)
-    context.bot.send_message(chat_id=config.log_channel, text = err+log, parse_mode='HTML')
+    context.bot.send_message(chat_id=config.log_channel, text = txt+"\n\n"+err+log, parse_mode='HTML')
