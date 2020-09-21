@@ -56,7 +56,7 @@ def main():
     # Message Handlers
     # ================
     function(MessageHandler(Filters.status_update.new_chat_members, dialogs.welcome.init))    # Welcome
-    function(MessageHandler(Filters.update.message, dialogs.main.init))                    # Dialogs and chat controls
+    function(MessageHandler(Filters.update.message, dialogs.main.init))                       # Dialogs and chat controls
     # ================
 
     # Display errors and warnings

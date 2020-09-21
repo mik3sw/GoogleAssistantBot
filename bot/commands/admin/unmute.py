@@ -4,7 +4,7 @@ from telegram import ChatPermissions
 
 #FUNZIONE SMUTA
 @decorator.general_admin
-#@decorator.cancellacomandi
+@decorator.cancellacomandi
 def init(update, context):
     bot = context.bot
     pass

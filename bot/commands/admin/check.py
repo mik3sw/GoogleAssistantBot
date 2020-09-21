@@ -3,6 +3,7 @@ import config
 import functions
 
 @decorator.general_admin
+@decorator.cancellacomandi
 def init(update, context):
     p=context.bot.get_chat_member(update.message.chat_id, config.bot_id)
     res_mem = '❌'
@@ -15,4 +16,4 @@ def init(update, context):
     if p.can_pin_messages:
         pin_mess = '✅'
     txt = functions.general.txtReader('check')
-    update.message.reply_text(str(txt).format(res_mem, del_mess, pin_mess), parse_mode='HTML')
+    context.bot.send_message(update.message.chat_id, text = str(txt).format(res_mem, del_mess, pin_mess), parse_mode='HTML')

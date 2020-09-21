@@ -5,7 +5,7 @@ import time
 nuked = 0
 
 @decorator.general_admin
-#@decorator.cancellacomandi
+@decorator.cancellacomandi
 def init(update, context):
     pass
     bot = context.bot
