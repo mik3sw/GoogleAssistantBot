@@ -34,7 +34,7 @@ def init(update, context):
 					if new.username == None:
 						name = new.first_name
 					else:
-						name = new.username
+						name = "@"+new.username
 				except:
 					name = "[ERROR]"
 				update.message.reply_text(str(txt).format(name,update.message.chat.title, net), reply_markup=reply_markup, parse_mode='HTML')
