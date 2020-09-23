@@ -21,7 +21,6 @@ def init(update, context):
 
 @decorator.general_admin
 def unsilence_button(update,context):
-    print("controllo unsilence")
     bot = context.bot
     query = update.callback_query
     query.answer()
