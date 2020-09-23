@@ -1,56 +1,15 @@
 import random
 from . import definisci
 from . import random_answer
+from . import answers
 
 
 
-def okgoogle(update, context):
+def general(update, context):
     if update.message.text is not None:
-        if str(update.message.text).lower() == "ok google" or str(update.message.text).lower() == "hey google" or str(
-                update.message.text).lower() == "google":
-            update.message.reply_text("Ciao {}, come posso aiutarti?️ 💬".format(update.message.from_user.first_name), parse_mode='HTML')
-
-
-def nexus5x(update, context):
-    if update.message.text is not None:
-        if 'nexus 5x' in str(update.message.text).lower():
-            update.message.reply_text("Do you want some bootloop?",
-                             reply_to_message_id=update.message.message_id)
-
-
-def buonasera(update, context):
-    if update.message.text is not None:
-        if str(update.message.text).lower().startswith("buonasera"):
-            update.message.reply_text(
-                             "Buonasera {username} 🌅".format(username=update.message.from_user.first_name),
-                             reply_to_message_id=update.message.message_id)
-
-
-# Buongiorno
-def buongiorno(update, context):
-    if update.message.text is not None:
-        if str(update.message.text).lower().startswith("buongiorno"):
-            update.message.reply_text(
-                             "Buongiorno {username} ☀️".format(username=update.message.from_user.first_name),
-                             reply_to_message_id=update.message.message_id)
-
-
-# Buonanotte
-def buonanotte(update, context):
-    if update.message.text is not None:
-        if str(update.message.text).lower().startswith("buonanotte"):
-            update.message.reply_text(
-                             "Buonanotte {username}".format(username=update.message.from_user.first_name),
-                             reply_to_message_id=update.message.message_id)
-
-
-# come stai
-def comestai(update, context):
-    if update.message.text is not None:
-        if str(update.message.text).lower().startswith("come stai google"):
-            update.message.reply_text("Sto bene {username}, grazie per avermelo chiesto 💙❤️💛💙💚❤️".format(
-                username=update.message.from_user.first_name), reply_to_message_id=update.message.message_id)
-
+        for x in answers.cases:
+            if x in str(update.message.text).lower():
+                update.message.reply_text(str(answers.cases[x]).format(name = update.message.from_user.first_name))
 
 def cosapensi(update, context):
     if update.message.text is not None:
@@ -89,12 +48,7 @@ def mercatino(update, context):
 
 
 def init(update, context):
-    okgoogle(update, context)
-    nexus5x(update, context)
-    buongiorno(update, context)
-    buonanotte(update, context)
-    comestai(update, context)
-    buonasera(update, context)
+    general(update, context)
     cosafai(update, context)
     cosapensi(update, context)
     curiosita(update, context)
