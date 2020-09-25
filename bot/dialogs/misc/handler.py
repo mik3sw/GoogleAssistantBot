@@ -39,7 +39,7 @@ def curiosita(update, context):
 
 def mercatino(update, context):
     if (update.message.text is not None) and (update.message.chat_id != -1001160935294):
-        words = ["vendo", "qualcuno vende"]
+        words = ["vendo ", "qualcuno vende "]
         for x in words:
             if x in str(update.message.text).lower():
                 context.bot.delete_message(update.message.chat_id, update.message.message_id)
