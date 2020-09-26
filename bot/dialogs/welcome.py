@@ -32,7 +32,7 @@ def init(update, context):
 				net = '<a href="t.me/aospitalianet">Network</a>'
 				try:
 					if new.username == None:
-						name = new.first_name
+						name = "<a href=\"tg://user?id={}\">{}</a>".format(new.id, new.first_name)
 					else:
 						name = "@"+new.username
 				except:
