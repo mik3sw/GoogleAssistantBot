@@ -8,7 +8,7 @@
 - [Configuration](https://github.com/mik3sw/GoogleAssistantBot#configuration-work-in-progress)
 - [Plugins](https://github.com/mik3sw/GoogleAssistantBot#Plugins)
 - [Run the bot](https://github.com/mik3sw/GoogleAssistantBot#Run-the-bot)
-- [What can i do?](https://github.com/mik3sw/GoogleAssistantBot#What-can-i-do)
+- [Features](https://github.com/mik3sw/GoogleAssistantBot#Features)
 - [Credits](https://github.com/mik3sw/GoogleAssistantBot#Credits)
 
 ## Welcome!
@@ -41,7 +41,7 @@ This bot needs some permissions to work:
 (to check permission use /check command)
 
 **Edit file 'config.py' to run your personal bot**
-```
+```python
 bot_token = "Bot token here"       # bot token
 bot_username = "@username"         # telegram bot username
 bot_id = 000000000000              # telegram bot id
@@ -104,49 +104,31 @@ Check 'plugins' folder to see what is already implemented. The bot will send a m
 - /weather <h> <min> command to set a daily report [h:min] (only for italy at the moment)
 
 
-## What can i do?
+## Features
 I am online! --> http://t.me/PythonAndroidBot
 
-### BOT QUESTIONS
+This bot offer some basic but useful commands and functions to help you managing your telegram group/community.
 
-- ok google/hey google
-- nexus 5x
-- buongiorno
-- buonanotte
-- google cosa pensi
-- google che fai
-- google curiosità
+**For admins:**
+- Ban/Unban
+- Nuke
+- Mute/Unmute
+- Kick
+- Night mode
+- Pin messages
 
-
-### BOT FUNCTION
-
-- Welcome message
-- Google cerca/search <something> (will send the definition from Wikipedia.org)(only italian for now)
+**In-Chat Controls**
 - Can detect non-latin messages and users (chinese and arabic)
 - Can detect blacklisted words (working)
 - Can detect Amazon ref links (and other links)
 - Can detect telegram spam links (working)
 
+**Other**
+- Welcome message
+- Custom message handler
 
+Other commands available in /help message
 
-### BOT COMMANDS
-
-**ADMIN**
-- ban/unban
-- mute/unmute
-- del
-- pin
-- annuncio <text here> - the bot will send and pin the message
-- nuke (ban a user in a theatrical way)
-- check
-- say <text here> - the bot will say what you want
-
-**USER**
-- rules 
-- source [display source code]
-- me (receive personal telegram information, like id, username, name...)
-- help (display the list of available commands)
-- start (display start message)
 
 # ToDo
 
@@ -155,9 +137,8 @@ I am online! --> http://t.me/PythonAndroidBot
 - [x] blacklisted words/urls 
 - [ ] more in-chat controls
 - [ ] blacklist
-- [ ] community management
 - [ ] temp ban/mute
-- [ ] night mode
+- [x] night mode
 - [ ] settings command (got headache)
 
 ## Credits
