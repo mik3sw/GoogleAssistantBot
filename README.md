@@ -50,7 +50,7 @@ LIST_OF_ADMINS = [0000, 1111]      # admins' telegram id (to perform admin comma
 ```
 
 **Edit 'strings.ini' to change or create a new personal translation of the bot and set it in config.language**
-```
+```ini
 [start]         # Start command
 it = ciao!      # italian
 en = hello!     # english
@@ -66,7 +66,7 @@ In several non-global groups a lot of userbots join with chinese/arabic names (a
 The filter is based on this logic: if user's first_name contains chinese characters **AND** hasn't username --> ban
 
 [*] work in progress
-```
+```ini
 # settings about new users joined in a group
 [new_user]
 
@@ -84,7 +84,7 @@ Follow this steps:
 1) clone this project
 2) edit configurations files
 3) run this commands
-```
+```shell
 pip3 install -r requirements.txt
 
 python google.py
