@@ -3,7 +3,6 @@ import config
 import functions
 
 @decorator.general_admin
-@decorator.cancellacomandi
 def init(update, context):
     p=context.bot.get_chat_member(update.message.chat_id, config.bot_id)
     res_mem = '❌'
