@@ -17,7 +17,7 @@ def init(update, context):
     reply_markup = InlineKeyboardMarkup(keyboard)
     bot.set_chat_permissions(update.message.chat_id,permission)
     video = 'https://i.pinimg.com/originals/a5/33/11/a5331134ee11f537982c7d816778544b.gif' 
-    bot.send_video(update.message.chat_id, video=video, caption="Activating night mode...🌙", reply_markup=reply_markup,parse_mode='HTML')
+    bot.send_video(update.message.chat_id, video=video, caption="Activating night mode...🌙\nSarete tutti mutati fino alla disattivazione (non potrete inviare messaggi, immagini, stickers, ecc...)", reply_markup=reply_markup,parse_mode='HTML')
 
 @decorator.general_admin
 def unsilence_button(update,context):
