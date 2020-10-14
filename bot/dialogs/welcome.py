@@ -8,9 +8,6 @@ def init(update, context):
 	r1 = ConfigParser()
 	r1.read('settings.ini')
 
-	keyboard = [[InlineKeyboardButton("Mercatino 📦", url='t.me/AOSPItaliashop')],
-					[InlineKeyboardButton("Somme Regole 📜", url='https://telegra.ph/Google-Pixel-Italia-07-29')]]
-	reply_markup = InlineKeyboardMarkup(keyboard)
 
 	for new in update.message.new_chat_members:
 		# ==========================
@@ -28,7 +25,6 @@ def init(update, context):
 				txt = functions.general.txtReader('welcome_bot')
 				context.bot.send_message(update.message.chat_id, text=txt, parse_mode='HTML')
 			else:
-				txt = functions.general.txtReader('welcome')
 				net = '<a href="t.me/aospitalianet">Network</a>'
 				try:
 					if new.username == None:
@@ -37,4 +33,15 @@ def init(update, context):
 						name = "@"+new.username
 				except:
 					name = "[ERROR]"
-				update.message.reply_text(str(txt).format(name,update.message.chat.title, net), reply_markup=reply_markup, parse_mode='HTML')
+
+				if update.message.chat_id == config.mercatino: #mercatino
+					txt = functions.general.txtReader('welcome_market')
+					keyboard = [[InlineKeyboardButton("📦 Come postare un annuncio 📦", url = 'https://telegra.ph/Come-pubblicare-un-annuncio-linee-guida-10-14')]]
+					reply_markup = InlineKeyboardMarkup(keyboard)
+					update.message.reply_text(str(txt).format(name,update.message.chat.title), reply_markup=reply_markup, parse_mode='HTML')
+				else:
+					txt = functions.general.txtReader('welcome')
+					keyboard = [[InlineKeyboardButton("Mercatino 📦", url='t.me/AOSPItaliashop')],
+								[InlineKeyboardButton("Somme Regole 📜", url='https://telegra.ph/Google-Pixel-Italia-07-29')]]
+					reply_markup = InlineKeyboardMarkup(keyboard)
+					update.message.reply_text(str(txt).format(name,update.message.chat.title, net), reply_markup=reply_markup, parse_mode='HTML')
