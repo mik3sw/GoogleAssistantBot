@@ -123,6 +123,7 @@ This bot offer some basic but useful commands and functions to help you managing
 - Can detect blacklisted words (working)
 - Can detect Amazon ref links (and other links)
 - Can detect telegram spam links (working)
+- Can detect spam photo captions
 
 **Other**
 - Welcome message
@@ -136,7 +137,7 @@ Other commands available in /help message
 - [x] better code
 - [x] improve commands performance/exception
 - [x] blacklisted words/urls 
-- [ ] more in-chat controls
+- [x] more in-chat controls
 - [ ] blacklist
 - [ ] temp ban/mute
 - [x] night mode
