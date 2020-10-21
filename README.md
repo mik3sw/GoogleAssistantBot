@@ -2,7 +2,16 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/2b80a4badc0f472186f735c3a1d0b726?style=flat-square)](https://www.codacy.com/manual/mik3sw/GoogleAssistantBot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mik3sw/GoogleAssistantBot&amp;utm_campaign=Badge_Grade)
 [![Python3.7+](https://img.shields.io/badge/Python-3.7%2B-green.svg?style=flat-square)](https://www.python.org/downloads)
 ![](https://img.shields.io/github/repo-size/mik3sw/GoogleAssistantBot.svg?label=Repo%20size&style=flat-square)&nbsp;
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg?style=flat-square)](https://github.com/sindresorhus/awesome) 
+[![Made With Love](https://img.shields.io/badge/Made%20With-Love-orange.svg?style=flat-square)](https://github.com/chetanraj/awesome-github-badges)
+
 ![](QDyD.gif)
+[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/powered-by-black-magic.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://forthebadge.com)
+
 ## Table of content
 - [Presentation](https://github.com/mik3sw/GoogleAssistantBot#Welcome)
 - [Dependencies](https://github.com/mik3sw/GoogleAssistantBot#Dependencies)
@@ -106,6 +115,7 @@ Check 'plugins' folder to see what is already implemented. The bot will send a m
 
 
 ## Features
+[![forthebadge](https://forthebadge.com/images/badges/contains-17-coffee-cups.svg)](https://forthebadge.com)
 I am online! --> http://t.me/PythonAndroidBot
 
 This bot offer some basic but useful commands and functions to help you managing your telegram group/community.
@@ -144,6 +154,7 @@ Other commands available in /help message
 - [ ] settings command (got headache)
 
 ## Credits
+[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
 
 Main dev: [@mike_2000](https://t.me/mike_2000)
 
