@@ -1,6 +1,7 @@
 # Google Assistant Bot
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/2b80a4badc0f472186f735c3a1d0b726)](https://www.codacy.com/manual/mik3sw/GoogleAssistantBot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mik3sw/GoogleAssistantBot&amp;utm_campaign=Badge_Grade)
-[![Python3.7+](https://img.shields.io/badge/Python-3.7%2B-green.svg)](https://www.python.org/downloads)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/2b80a4badc0f472186f735c3a1d0b726?style=flat-square)](https://www.codacy.com/manual/mik3sw/GoogleAssistantBot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mik3sw/GoogleAssistantBot&amp;utm_campaign=Badge_Grade)
+[![Python3.7+](https://img.shields.io/badge/Python-3.7%2B-green.svg?style=flat-square)](https://www.python.org/downloads)
+![](https://img.shields.io/github/repo-size/mik3sw/GoogleAssistantBot.svg?label=Repo%20size&style=flat-square)&nbsp;
 ![](QDyD.gif)
 ## Table of content
 - [Presentation](https://github.com/mik3sw/GoogleAssistantBot#Welcome)
