@@ -45,6 +45,7 @@ def main():
     index.user_commands(dp)
 
     # Message Handlers
+    function(MessageHandler(Filters.photo, dialogs.images.init))
     function(MessageHandler(Filters.status_update.new_chat_members, dialogs.welcome.init))    # Welcome
     function(MessageHandler(Filters.update.message, dialogs.main.init))                       # Dialogs and chat controls
 

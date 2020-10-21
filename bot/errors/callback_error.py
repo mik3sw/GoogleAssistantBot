@@ -43,4 +43,4 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 def error_message(update, context, err, txt):
     log = '\n[LOG] errore: {}'.format(context.error)
-    context.bot.send_message(chat_id=config.log_channel, text = txt+"\n\n"+err+log, parse_mode='HTML')
+    context.bot.send_message(chat_id=config.log_channel, text = "{}\n\n{}{}".format(txt, err, log), parse_mode='HTML')

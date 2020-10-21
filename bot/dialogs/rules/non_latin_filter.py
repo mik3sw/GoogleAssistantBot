@@ -7,7 +7,7 @@ def arabic(update, context, r1):
         arabic = re.findall(r'[\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufbc1]|[\ufbd3-\ufd3f]|[\ufd50-\ufd8f]|[\ufd92-\ufdc7]|[\ufe70-\ufefc]|[\uFDF0-\uFDFD]+',update.message.from_user.first_name)
         if arabic != []:
             context.bot.kick_chat_member(update.message.chat.id, update.message.from_user.id, timeout=None, until_date=None)
-            update.message.reply_text("User [{}][{}][@{}] Banned\n<b>Reason:</b> non_latin_filter triggered [arabic characters]".format(update.message.from_user.id, new.first_name, new.username), parse_mode = 'HTML')
+            update.message.reply_text("User [{}][{}][@{}] Banned\n<b>Reason:</b> non_latin_filter triggered [arabic characters]".format(update.message.from_user.id, update.message.from_user.first_name, update.message.from_user.username), parse_mode = 'HTML')
             return True
         else:
             return False
