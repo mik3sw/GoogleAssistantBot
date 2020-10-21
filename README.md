@@ -2,6 +2,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/2b80a4badc0f472186f735c3a1d0b726?style=flat-square)](https://www.codacy.com/manual/mik3sw/GoogleAssistantBot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mik3sw/GoogleAssistantBot&amp;utm_campaign=Badge_Grade)
 [![Python3.7+](https://img.shields.io/badge/Python-3.7%2B-green.svg?style=flat-square)](https://www.python.org/downloads)
 ![](https://img.shields.io/github/repo-size/mik3sw/GoogleAssistantBot.svg?label=Repo%20size&style=flat-square)&nbsp;
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg?style=flat-square)](https://github.com/sindresorhus/awesome) 
 [![Made With Love](https://img.shields.io/badge/Made%20With-Love-orange.svg?style=flat-square)](https://github.com/chetanraj/awesome-github-badges)
 
