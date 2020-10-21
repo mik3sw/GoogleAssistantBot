@@ -6,13 +6,10 @@
 [![Made With Love](https://img.shields.io/badge/Made%20With-Love-orange.svg?style=flat-square)](https://github.com/chetanraj/awesome-github-badges)
 
 ![](QDyD.gif)
-[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/powered-by-black-magic.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://forthebadge.com)
 
 ## Table of content
+[![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)](https://forthebadge.com)
+
 - [Presentation](https://github.com/mik3sw/GoogleAssistantBot#Welcome)
 - [Dependencies](https://github.com/mik3sw/GoogleAssistantBot#Dependencies)
 - [Configuration](https://github.com/mik3sw/GoogleAssistantBot#configuration-work-in-progress)
@@ -22,6 +19,9 @@
 - [Credits](https://github.com/mik3sw/GoogleAssistantBot#Credits)
 
 ## Welcome!
+
+[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 
 **[it]** - 
 Bot Gestionale e di benvenuto interamente in lingua italiana ed OPEN SOURCE
@@ -87,6 +87,8 @@ arabic_characters = True
 ```
 
 ## Run the bot
+[![forthebadge](https://forthebadge.com/images/badges/powered-by-black-magic.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://forthebadge.com)
 
 Follow this steps:
 
