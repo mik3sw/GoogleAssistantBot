@@ -35,9 +35,13 @@ def init(update, context):
     except AttributeError:
         err = '[ERROR] AttributeError -  bad code'
     except TypeError:
-        err = '[ERROR] TypeError - Unknown'
-    finally:
+        # err = '[ERROR] TypeError - Unknown'
+        # need to fix this... 
+        err = None
+    
+    if err != None:
         error_message(update, context, err, txt)
+        
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
