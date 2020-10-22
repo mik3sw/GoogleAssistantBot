@@ -42,7 +42,8 @@ If you want to use this bot, just edit "config.py", "strings.ini" and files in "
 - wikipedia
 ```
 
-## Configuration (work in progress)
+## Configuration (work in progress) 
+[![forthebadge](https://forthebadge.com/images/badges/not-a-bug-a-feature.svg)](https://forthebadge.com)
 
 This bot needs some permissions to work:
 - **can_restrict_members**
@@ -118,7 +119,8 @@ Check 'plugins' folder to see what is already implemented. The bot will send a m
 
 
 ## Features
-[![forthebadge](https://forthebadge.com/images/badges/contains-17-coffee-cups.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg)](https://forthebadge.com)
+
 I am online! --> http://t.me/PythonAndroidBot
 
 This bot offer some basic but useful commands and functions to help you managing your telegram group/community.
@@ -146,7 +148,7 @@ Other commands available in /help message
 
 
 # ToDo
-
+[![forthebadge](https://forthebadge.com/images/badges/it-works-why.svg)](https://forthebadge.com)
 - [x] better code
 - [x] improve commands performance/exception
 - [x] blacklisted words/urls 
