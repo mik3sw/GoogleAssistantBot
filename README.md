@@ -138,7 +138,7 @@ This bot offer some basic but useful commands and functions to help you managing
 - Can detect blacklisted words (working)
 - Can detect Amazon ref links (and other links)
 - Can detect telegram spam links (working)
-- Can detect spam photo captions
+- Can detect spam photo captions (working)
 
 **Other**
 - Welcome message
