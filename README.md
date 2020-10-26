@@ -134,7 +134,7 @@ This bot offer some basic but useful commands and functions to help you managing
 - Pin messages
 
 **In-Chat Controls**
-- Can detect non-latin messages and users (chinese and arabic)
+- Can detect non-latin messages and users (chinese, arabic, russian)
 - Can detect blacklisted words (working)
 - Can detect Amazon ref links (and other links)
 - Can detect telegram spam links (working)

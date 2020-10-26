@@ -14,11 +14,12 @@ def init(update, context):
 		# Quick check on new members
 		# [1] chinese characters
 		# [2] arabic characters
-		# [3] (work in progress)
+		# [3] russian characters
 		# ==========================
 		chinese = functions.chinese_characters.init(update, context, r1, new)
 		arabic = functions.arabic_characters.init(update, context, r1, new)
-		if chinese == True or arabic == True:
+		russian = functions.russian_characters.init(update, context, r1, new)
+		if chinese or arabic or russian:
 			print('ban triggered on new user')
 		else:
 			if str(new.username).lower() == config.bot_username:
