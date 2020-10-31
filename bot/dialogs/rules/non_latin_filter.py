@@ -28,11 +28,23 @@ def chinese(update, context, r1):
     else:
         return False
 
+def russian(update, context, r1):
+    if r1.get('new_user', 'russian_characters') == 'True':
+        russia = bool(re.search('[а-яА-Я]', update.message.from_user.first_name))
+        if russia:
+            context.bot.kick_chat_member(update.message.chat.id, update.message.from_user.id, timeout=None, until_date=None)
+            update.message.reply_text("User [{}][{}][@{}] Banned\n<b>Reason:</b> non_latin_filter triggered [russian characters]".format(update.message.from_user.id, update.message.from_user.first_name, update.message.from_user.username), parse_mode = 'HTML')
+            return True
+        else:
+            return False
+    else:
+        return False
+
 
 def init(update, context):
     if update.message is not None:
         r1 = ConfigParser()
         r1.read('settings.ini')
-        if chinese(update, context, r1) or arabic(update, context, r1):
+        if chinese(update, context, r1) or arabic(update, context, r1) or russian(update, context, r1):
             print("latin filter triggered") 
     
