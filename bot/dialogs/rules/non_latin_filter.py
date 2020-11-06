@@ -28,7 +28,7 @@ def chinese(update, context, r1):
         return False
 
 def russian(update, context, r1):
-    if r1.get('new_user', 'russian_characters') == 'True':
+    if r1.get('chat', 'russian_characters') == 'True':
         russia = bool(re.search('[а-яА-Я]', update.message.from_user.first_name))
         russia1 = bool(re.search('[а-яА-Я]', update.message.text))
         if russia or russia1:
