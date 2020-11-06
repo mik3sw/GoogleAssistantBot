@@ -165,4 +165,7 @@ Main dev: [@mike_2000](https://t.me/mike_2000)
 
 Main telegram group: [Google Pixel IT](https://t.me/googlepixelit)
 
-Credits: http://github.com/mirkobrombin/pybotgram
+Credits: 
+http://github.com/mirkobrombin/pybotgram
+https://github.com/Squirrel-Network/nebula
+
