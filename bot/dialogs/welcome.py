@@ -19,7 +19,9 @@ def init(update, context):
 		chinese = functions.chinese_characters.init(update, context, r1, new)
 		arabic = functions.arabic_characters.init(update, context, r1, new)
 		russian = functions.russian_characters.init(update, context, r1, new)
-		if chinese or arabic or russian:
+		spammer = functions.custom_spam.init(update, context, r1, new)
+
+		if chinese or arabic or russian or spammer:
 			print('ban triggered on new user')
 		else:
 			if str(new.username).lower() == config.bot_username:
