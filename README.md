@@ -101,7 +101,7 @@ Follow this steps:
 ```shell
 pip3 install -r requirements.txt
 
-python google.py
+python3 google.py
 
 ```
 
@@ -154,7 +154,6 @@ Other commands available in /help message
 - [x] blacklisted words/urls 
 - [x] more in-chat controls
 - [ ] blacklist
-- [ ] temp ban/mute
 - [x] night mode
 - [ ] settings command (got headache)
 
@@ -166,6 +165,6 @@ Main dev: [@mike_2000](https://t.me/mike_2000)
 Main telegram group: [Google Pixel IT](https://t.me/googlepixelit)
 
 Credits: 
-http://github.com/mirkobrombin/pybotgram
-https://github.com/Squirrel-Network/nebula
+- http://github.com/mirkobrombin/pybotgram
+- https://github.com/Squirrel-Network/nebula
 
