@@ -46,3 +46,28 @@ def message(update,context,text = ""):
 def reply_message(update,context,text = ""):
     msg = update.message.reply_text(text,parse_mode='HTML')
     return msg
+
+##############################
+###Object entity definition###
+##############################
+
+def bot_object(update,context):
+    bot = context.bot
+    return bot
+
+def chat_object(update):
+    chat = update.effective_chat
+    return chat
+
+def user_object(update):
+    user = update.effective_message.from_user
+    return user
+
+def user_reply_object(update):
+    user = update.message.reply_to_message.from_user
+    return user
+
+def new_user_object(update):
+    for member in update.message.new_chat_members:
+        new_user = member
+        return new_user
