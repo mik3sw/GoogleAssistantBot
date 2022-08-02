@@ -29,5 +29,6 @@ def admin_commands(dp):
     function(CMH("del", commands.admin.delete.init))
     function(CMH(["notte", "night", "silenzio", "silence"], commands.admin.night.init))
     function(CMH("kick", commands.admin.kick.init))
+    function(CMH("slow", commands.admin.slow.init))
     
     
