@@ -28,3 +28,6 @@ url_denylist = ["amzn.to", "t.me"]
 
 # Market id
 mercatino = -111111111
+
+# admin group is
+admin_group = -1111111111111
