@@ -30,5 +30,7 @@ def admin_commands(dp):
     function(CMH(["notte", "night", "silenzio", "silence"], commands.admin.night.init))
     function(CMH("kick", commands.admin.kick.init))
     function(CMH("slow", commands.admin.slow.init))
+    function(CMH("autoban", commands.admin.autoban.init))
+    function(CMH("autokick", commands.admin.autokick.init))
     
     
