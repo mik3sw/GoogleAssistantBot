@@ -1,7 +1,7 @@
 import config
 from functions.general import message
 def init(update, context):
-    hashtag = ['#vendo', '#cerco', '#scambio']
+    hashtag = ['#vendo', '#cerco', '#scambio', "#feedback"]
     if update.message.text is not None:
         #print(update.message.text)
         if (update.message.chat_id == config.mercatino) and not(update.message.from_user.id in config.LIST_OF_ADMINS):
