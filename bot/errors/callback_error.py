@@ -9,42 +9,47 @@ def init(update, context):
     try:
         raise context.error
     except Unauthorized:
-        err = '[ERROR] Unauthorized\n'
+        err = '<i>[ERROR] Unauthorized</i>\n'
         #error_message(update, context, err)
         # remove update.message.chat_id from conversation list
     except BadRequest:
-        err = '[ERROR] BadRequest - malformed requests\n'
+        err = '<i>[ERROR] BadRequest - malformed requests</i>\n'
         #error_message(update, context, err)
         # handle malformed requests - read more below!
     except TimedOut:
-        err = '[ERROR] TimedOut - slow connection problems\n'
+        err = '<i>[ERROR] TimedOut - slow connection problems</i>\n'
         #error_message(update, context, err)
         # handle slow connection problems
     except NetworkError:
-        err = '[ERROR] NetworkError - other connection problems\n'
+        err = '<i>[ERROR] NetworkError - other connection problems</i>\n'
         #error_message(update, context, err)
         # handle other connection problems
     except ChatMigrated:
-        err = '[ERROR] ChatMigrated - chat_id not found (maybe group/channel migrated?)\n'
+        err = '<i>[ERROR] ChatMigrated - chat_id not found (maybe group/channel migrated?)</i>\n'
         #error_message(update, context, err)
         # the chat_id of a group has changed, use e.new_chat_id instead
     except TelegramError:
-        err = '[ERROR] TelegramError\nThis is a generic error not handled by other handlers, check the console logs for info\n'
+        err = '<i>[ERROR] TelegramError\nThis is a generic error not handled by other handlers, check the console logs for info</i>\n'
         #error_message(update, context, err)
         # handle all other telegram related errors
     except AttributeError:
-        err = '[ERROR] AttributeError -  bad code'
+        err = '<i>[ERROR] AttributeError -  bad code</i>'
     except TypeError:
         # err = '[ERROR] TypeError - Unknown'
         # need to fix this... 
         err = None
     
     if err != None:
-        error_message(update, context, err, txt)
+        nomeutente=update.message.from_user.first_name
+        username="@"+update.message.from_user.username
+        id=update.message.from_user.id
+        chat_id = update.message.chat_id
+        chat_name = update.message.chat.title
+        error_message(update, context, err, txt, nomeutente, username, id, chat_id, chat_name)
         
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
-def error_message(update, context, err, txt):
-    log = '\n[LOG] errore: {}'.format(context.error)
-    context.bot.send_message(chat_id=config.log_channel, text = "{}\n\n{}{}".format(txt, err, log), parse_mode='HTML')
+def error_message(update, context, err, txt, name, username, id, chatid, chat_name):
+    log = '\n<i>[LOG] errore: {}</i>'.format(context.error)
+    context.bot.send_message(chat_id=config.log_channel, text = "<b>Resoconto errore</b>\n<b>Chat</b>: [{}][{}]\n<b>Utente</b>: [{}][{}][{}]\n<b>Comando/messaggio</b>:{}\n\n<b>Errori rilevati</b>:\n{}{}".format(chat_name, chatid, id, name, username, txt, err, log), parse_mode='HTML')
