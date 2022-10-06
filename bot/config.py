@@ -25,6 +25,7 @@ bad_words = ['word1', 'word2'] #messages with this words will be deleted
 # URL Filter
 # =======================
 url_denylist = ["amzn.to", "t.me"]
+url_whitelist = ["t.me/googlepixelit", "t.me/aospitalia", "t.me/aospitaliashop", "t.me/pixelwatchitalia", "t.me/googlepixelitchannel"]
 
 # Market id
 mercatino = -111111111
