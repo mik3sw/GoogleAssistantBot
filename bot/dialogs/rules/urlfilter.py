@@ -19,4 +19,4 @@ def init(update, context):
             context.bot.send_message(config.admin_group, text="(DEBUG MESSAGE)\nIl seguente messaggio e' stato bloccato:\n\n{}".format(update.message.text))
                     
             context.bot.delete_message(update.message.chat_id, update.message.message_id)
-            context.bot.send_message(update.message.chat_id, text="This link has been blocked by an administrator")
+            update.message.reply_text(text="Link bloccato, per prevenire lo spam eliminiamo i link t.me, usa la funzione di telegram per creare hyperlink.")
