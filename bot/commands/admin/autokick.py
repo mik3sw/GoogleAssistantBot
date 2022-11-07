@@ -23,9 +23,9 @@ def init(update, context):
 
     # set and send message to the user
     msg = f"{name}, sarai kickato dal gruppo fra 60 secondi per questo motivo:\n\n{reason}"
-    context.bot.send_message(chat_id=update.message.chat_id,
-                             text=msg,
-                             reply_to_message_id=update.message.reply_to_message.message_id)
+    update.message.reply_text(#chat_id=update.message.chat_id,
+                             text=msg,)
+                             #reply_to_message_id=update.message.reply_to_message.message_id)
 
     # set delayed action
     def delayed_ban(context, update=update):
@@ -35,7 +35,7 @@ def init(update, context):
             context.bot.unban_chat_member(chat_id=update.message.chat.id, user_id=user_id)
         except TelegramError:
             print("an error occurred [AUTOKICK] function")
-            update.message.send_message(chat_id=update.message.chat_id, text="Error during autokick operation")
+            update.message.reply_test(text="Error during autokick operation")
 
     # schedule action
     seconds = 60

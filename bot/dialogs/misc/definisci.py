@@ -24,5 +24,5 @@ def init(update, context):
 
                 update.message.reply_text(text, reply_markup=InlineKeyboardMarkup(button_list), parse_mode='HTML')
             except:
-                bot.send_message(update.message.chat_id, text="Mi spiace {user} non ho trovato quello che cercavi"
+                update.message.reply_text( text="Mi spiace {user} non ho trovato quello che cercavi"
                                  .format(user=update.message.from_user.first_name))

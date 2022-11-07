@@ -1,4 +1,5 @@
 import re
+from config import admin_group
 
 def custom_spam(capt):
     spam_list = ['errori di prezzo', 'offerta imperdibile']
@@ -18,6 +19,6 @@ def init(update, context):
             #caption with banned characters
             context.bot.delete_message(update.message.chat_id, update.message.message_id)
             context.bot.kick_chat_member(update.message.chat_id,update.message.from_user.id)
-            context.bot.send_message(update.message.chat_id,text ="Banned image detected!\n[{}][{}][@{}] Banned and message deleted!".format(update.message.from_user.id, update.message.from_user.first_name, update.message.from_user.username),parse_mode='HTML')
+            context.bot.send_message(admin_group,text ="Banned image detected!\n[{}][{}][@{}] Banned and message deleted!".format(update.message.from_user.id, update.message.from_user.first_name, update.message.from_user.username),parse_mode='HTML')
 
 

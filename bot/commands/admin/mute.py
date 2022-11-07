@@ -3,7 +3,7 @@ from telegram import ChatPermissions
 import datetime
 
 @decorator.general_admin
-@decorator.cancellacomandi
+#@decorator.cancellacomandi
 def init(update, context):
     bot = context.bot
     pass
@@ -18,7 +18,8 @@ def init(update, context):
 						can_invite_users=False
 					),
 					until_date=datetime.datetime.now() + datetime.timedelta(days=1))
-      bot.send_message(update.message.chat_id, text="User: [{}][{}][@{}]\nSuccesfully muted".format(update.message.reply_to_message.from_user.id, update.message.reply_to_message.from_user.first_name, update.message.reply_to_message.from_user.username))
+      update.message.reply_text(text="<b>Mute process</b>\n\nUser_id: <code>{}</code>\nName: {}\nUsername: @{}\n\nSuccesfully muted".format(update.message.reply_to_message.from_user.id, update.message.reply_to_message.from_user.first_name, update.message.reply_to_message.from_user.username), parse_mode='HTML')
+      context.bot.delete_message(update.message.chat_id, update.message.message_id)
     except:
       print("an error occurred [MUTE] function")
       update.message.reply_text("Error during unmute operation")

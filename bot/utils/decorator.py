@@ -1,8 +1,9 @@
-#DEFINIZIONE COMANDI ADMIN
+# DEFINIZIONE COMANDI ADMIN
 from functools import wraps
 import config
+from time import sleep
 
-#only people from config.LIST_OF_ADMINS can perform that command
+# only people from config.LIST_OF_ADMINS can perform that command
 def restricted(func):
     @wraps(func)
     def wrapped(update, context):
@@ -13,7 +14,7 @@ def restricted(func):
         return func(update, context)
     return wrapped
 
-#delete command message (ex: /ban)
+# delete command message (ex: /ban)
 def cancellacomandi(func):
     @wraps(func)
     def wrapped(update, context):
@@ -25,7 +26,7 @@ def cancellacomandi(func):
     return wrapped
 
 # Owner of the bot
-#only people from config.OWNER_LIST can perform that command
+# only people from config.OWNER_LIST can perform that command
 def ownerbot(func):
     @wraps(func)
     def wrapped(update, context):

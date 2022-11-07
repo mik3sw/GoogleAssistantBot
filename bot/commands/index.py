@@ -15,7 +15,7 @@ def user_commands(dp):
 
 def admin_commands(dp):
     function = dp.add_handler
-    function(CMH("ban", commands.admin.ban.init))
+    function(CMH("ban", commands.admin.ban.init, pass_args=True))
     function(CMH("unban", commands.admin.unban.init))
     function(CMH("nuke", commands.admin.nuke.init)) # nuke command message
     function(CQH(commands.admin.night.unsilence_button, pattern='unsilence_button'))
@@ -23,14 +23,16 @@ def admin_commands(dp):
     function(CMH(["muta", "mute"], commands.admin.mute.init))
     function(CMH(["smuta", "unmute"], commands.admin.unmute.init))
     function(CMH(["fissa", "pin"], commands.admin.pin.init))
-    function(CMH("say", commands.admin.say.init))
+    function(CMH("say", commands.admin.say.init, pass_args=True))
     function(CMH(["saypin","annuncio"], commands.admin.annuncio.init ,pass_args=True))
     function(CMH("check", commands.admin.check.init))
     function(CMH("del", commands.admin.delete.init))
     function(CMH(["notte", "night", "silenzio", "silence"], commands.admin.night.init))
-    function(CMH("kick", commands.admin.kick.init))
+    function(CMH("kick", commands.admin.kick.init, pass_args=True))
     function(CMH("slow", commands.admin.slow.init))
     function(CMH("autoban", commands.admin.autoban.init))
     function(CMH("autokick", commands.admin.autokick.init))
+    function(CMH("leave", commands.admin.leave.init, pass_args=True))
+    function(CMH("get", commands.admin.get.init))
     
     

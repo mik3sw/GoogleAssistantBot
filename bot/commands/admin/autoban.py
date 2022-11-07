@@ -3,7 +3,7 @@ from telegram.error import TelegramError
 
 
 @decorator.general_admin
-@decorator.cancellacomandi
+#@decorator.cancellacomandi
 def init(update, context):
     """
     This command is executed sending the command:
@@ -23,9 +23,9 @@ def init(update, context):
 
     # set and send message to the user
     msg = f"{name}, sarai bannato dal gruppo fra 60 secondi per questo motivo:\n\n{reason}"
-    context.bot.send_message(chat_id=update.message.chat_id,
-                             text=msg,
-                             reply_to_message_id=update.message.reply_to_message.message_id)
+    update.message.reply_text(#chat_id=update.message.chat_id,
+                             text=msg,)
+                             #reply_to_message_id=update.message.reply_to_message.message_id)
 
     # set delayed action
     def delayed_ban(context, update=update):
@@ -34,7 +34,7 @@ def init(update, context):
                                         user_id=update.message.reply_to_message.from_user.id)
         except TelegramError:
             print("an error occurred [AUTOBAN] function")
-            update.message.send_message(chat_id=update.message.chat_id, text="Error during autoban operation")
+            update.message.reply_test(text="Error during autoban operation")
 
     # schedule action
     seconds = 60

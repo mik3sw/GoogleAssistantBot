@@ -43,8 +43,13 @@ def init(update, context):
 					reply_markup = InlineKeyboardMarkup(keyboard)
 					update.message.reply_text(str(txt).format(name,update.message.chat.title), reply_markup=reply_markup, parse_mode='HTML')
 				else:
-					txt = functions.general.txtReader('welcome')
-					keyboard = [[InlineKeyboardButton("Mercatino 📦", url='t.me/AOSPItaliashop')],
-								[InlineKeyboardButton("Somme Regole 📜", url='https://telegra.ph/Google-Pixel-Italia-07-29')]]
-					reply_markup = InlineKeyboardMarkup(keyboard)
-					update.message.reply_text(str(txt).format(name,update.message.chat.title, net), reply_markup=reply_markup, parse_mode='HTML')
+					# currently not working with telegram-topics
+
+					#txt = functions.general.txtReader('welcome')
+					#keyboard = [[InlineKeyboardButton("Mercatino 📦", url='t.me/AOSPItaliashop')],
+					#			[InlineKeyboardButton("Somme Regole 📜", url='https://telegra.ph/Google-Pixel-Italia-07-29')]]
+					#reply_markup = InlineKeyboardMarkup(keyboard)
+					#update.message.reply_text(str(txt).format(name,update.message.chat.title, net), reply_markup=reply_markup, parse_mode='HTML')
+					msg_id = 489653
+					context.bot.edit_message_text(update.message.chat_id, text=f"benvenuto {name}", message_id=msg_id, parse_mode='HTML')
+					

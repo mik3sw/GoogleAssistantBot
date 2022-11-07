@@ -4,7 +4,7 @@ from telegram import ChatPermissions
 
 #FUNZIONE SMUTA
 @decorator.general_admin
-@decorator.cancellacomandi
+#@decorator.cancellacomandi
 def init(update, context):
     bot = context.bot
     pass
@@ -19,8 +19,8 @@ def init(update, context):
 						can_invite_users=True
 					)
       )
-      bot.send_message(update.message.chat_id, text="User: [{}][{}][@{}]\nSuccesfully unmuted".format(update.message.reply_to_message.from_user.id, update.message.reply_to_message.from_user.first_name, update.message.reply_to_message.from_user.username))
-
+      update.message.reply_text(text="<b>Unmute process</b>\n\nUser_id: <code>{}</code>\nName: {}\nUsername: @{}\n\nSuccesfully unmuted".format(update.message.reply_to_message.from_user.id, update.message.reply_to_message.from_user.first_name, update.message.reply_to_message.from_user.username), parse_mode='HTML')
+      context.bot.delete_message(update.message.chat_id, update.message.message_id)
     except:
       print("an error occurred [UNMUTE] function")
       update.message.reply_text("Error during unmute operation")

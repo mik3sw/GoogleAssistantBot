@@ -15,4 +15,5 @@ def init(update, context):
     if p.can_pin_messages:
         pin_mess = '✅'
     txt = functions.general.txtReader('check')
-    context.bot.send_message(update.message.chat_id, text = str(txt).format(res_mem, del_mess, pin_mess), parse_mode='HTML')
+    update.message.reply_text( text = str(txt).format(res_mem, del_mess, pin_mess), parse_mode='HTML')
+    context.bot.delete_message(update.message.chat_id, update.message.message_id)
