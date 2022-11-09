@@ -128,4 +128,4 @@ dmypy.json
 .vscode
 
 # custom file
-.bot/config.py
+bot/config.py
