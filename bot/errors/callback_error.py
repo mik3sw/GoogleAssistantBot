@@ -1,6 +1,18 @@
 from telegram.error import (TelegramError, Unauthorized, BadRequest, TimedOut, ChatMigrated, NetworkError)
 import config
 import logging
+from rich.logging import RichHandler
+#level=logging.INFO
+#FORMAT = "%(message)s"
+FORMAT='%(asctime)s - %(name)s - %(message)s'
+logging.basicConfig(
+    format=FORMAT, 
+    level=logging.INFO,
+    datefmt="[%X]", 
+    handlers=[RichHandler()]
+)
+#logger = logging.getLogger(__name__)
+logger = logging.getLogger("rich")
 
 
 def init(update, context):
@@ -35,9 +47,10 @@ def init(update, context):
     except AttributeError:
         err = '<i>[ERROR] AttributeError -  bad code</i>'
     except TypeError:
-        # err = '[ERROR] TypeError - Unknown'
+        err = '[ERROR] TypeError - Unknown'
         # need to fix this... 
-        err = None
+        #err = "TypeError"
+        #err = None
     
     if err != None:
         nomeutente=update.message.from_user.first_name
@@ -48,8 +61,8 @@ def init(update, context):
         error_message(update, context, err, txt, nomeutente, username, id, chat_id, chat_name)
         
 
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
-logger = logging.getLogger(__name__)
+#logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+
 def error_message(update, context, err, txt, name, username, id, chatid, chat_name):
     log = '\n<i>[LOG] errore: {}</i>'.format(context.error)
     context.bot.send_message(chat_id=config.log_channel, text = "<b>Resoconto errore</b>\n<b>Chat</b>: [{}][{}]\n<b>Utente</b>: [{}][{}][{}]\n<b>Comando/messaggio</b>:{}\n\n<b>Errori rilevati</b>:\n{}{}".format(chat_name, chatid, id, name, username, txt, err, log), parse_mode='HTML')
