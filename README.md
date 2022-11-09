@@ -8,17 +8,6 @@
 
 ![](QDyD.gif)
 
-## Table of content
-[![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)](https://forthebadge.com)
-
-- [Presentation](https://github.com/mik3sw/GoogleAssistantBot#Welcome)
-- [Dependencies](https://github.com/mik3sw/GoogleAssistantBot#Dependencies)
-- [Configuration](https://github.com/mik3sw/GoogleAssistantBot#configuration-work-in-progress)
-- [Plugins](https://github.com/mik3sw/GoogleAssistantBot#Plugins)
-- [Run the bot](https://github.com/mik3sw/GoogleAssistantBot#Run-the-bot)
-- [Features](https://github.com/mik3sw/GoogleAssistantBot#Features)
-- [Credits](https://github.com/mik3sw/GoogleAssistantBot#Credits)
-
 ## Welcome!
 
 [![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
