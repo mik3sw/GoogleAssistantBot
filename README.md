@@ -23,10 +23,11 @@
 
 [![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
 
 **[it]** - 
-Bot Gestionale e di benvenuto interamente in lingua italiana ed OPEN SOURCE
-Il Bot è stato realizzato per essere inserito nei gruppi facenti parte del network di [AOSPitaliaNET](https://t.me/aospitaliaNET)
+Bot Gestionale e di benvenuto interamente in lingua italiana ed open source.
+Il Bot è stato realizzato per essere inserito nei gruppi facenti parte del network di [GooglePixelItalia](https://t.me/googlepixelit)
 (questo significa che è personalizzato secondo le esigenze dei miei gruppi)
 Per personalizzarlo e renderlo operativo basterà modificare il file "config.py", "strings.ini" i file presenti nella cartella "dialogs"
 
@@ -35,130 +36,13 @@ This bot can manage your group, but only italian language is fully supported (fo
 This is only an imitation, it isn't the real Google Assistant and it has no AI.
 If you want to use this bot, just edit "config.py", "strings.ini" and files in "dialogs" folder
 
+## Docs
 
-## Dependencies
-```
-- python-telegram-bot
-- wikipedia
-```
+[![forthebadge](https://forthebadge.com/images/badges/made-with-markdown.svg)](https://forthebadge.com)
 
-## Configuration (work in progress) 
-[![forthebadge](https://forthebadge.com/images/badges/not-a-bug-a-feature.svg)](https://forthebadge.com)
-
-This bot needs some permissions to work:
-- **can_restrict_members**
-- **can_delete_messages**
-- **can_pin_messages**
-
-(to check permission use /check command)
-
-**Edit file 'config.py' to run your personal bot**
-```python
-bot_token = "Bot token here"       # bot token
-bot_username = "@username"         # telegram bot username
-bot_id = 000000000000              # telegram bot id
-language = "it"                    # bot language, check 'strings.ini' file
-LIST_OF_ADMINS = [0000, 1111]      # admins' telegram id (to perform admin commands)(check utils/decorator.py to understand)
-```
-
-**Edit 'strings.ini' to change or create a new personal translation of the bot and set it in config.language**
-```ini
-[start]         # Start command
-it = ciao!      # italian
-en = hello!     # english
-es = Hola!      # spanish
-ru = Привет!    # russian
-```
-
-**Edit 'settings.ini' to change some settings of the bot** *(work in progress)*
-
-**⚠️ Not Racism! ⚠️**
-In several non-global groups a lot of userbots join with chinese/arabic names (and no username) only for **spamming/scamming**
-
-The filter is based on this logic: if user's first_name contains chinese characters **AND** hasn't username --> ban
-
-[*] work in progress
-```ini
-# settings about new users joined in a group
-[new_user]
-
-# don't allow chinese characters (True)
-chinese_characters = True
-# don't allow arabic characters (True)
-arabic_characters = True
-```
-
-## Run the bot
-[![forthebadge](https://forthebadge.com/images/badges/powered-by-black-magic.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://forthebadge.com)
-
-Follow this steps:
-
-0) install [Python](https://www.python.org/)
-1) clone this project
-2) edit configurations files
-3) run this commands
-```shell
-pip3 install -r requirements.txt
-
-python3 google.py
-
-```
-
-## Plugins
-New Features incoming!
-Check 'plugins' folder to see what is already implemented. The bot will send a message in every group/chat/channel setted in 'config.py' file
-
-~~**Covid-19 daily report** [BETA][DELETED]~~
-- ~~/covid <h> <min> command to set a daily report [h:min]~~
-- ~~/uncovid to unset the daily report~~
- 
-
-**Weather daily report** [OPEN WEATHER API] [BETA]
-- /weather <h> <min> command to set a daily report [h:min] (only for italy at the moment)
-
-
-## Features
-[![forthebadge](https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg)](https://forthebadge.com)
-
-I am online! --> http://t.me/PythonAndroidBot
-
-This bot offer some basic but useful commands and functions to help you managing your telegram group/community.
-
-**For admins:**
-- Ban/Unban
-- Nuke
-- Mute/Unmute
-- Kick
-- Night mode
-- Pin messages
-
-**In-Chat Controls**
-- Can detect non-latin messages and users (chinese, arabic, russian)
-- Can detect blacklisted words (working)
-- Can detect Amazon ref links (and other links)
-- Can detect telegram spam links (working)
-- Can detect spam photo captions (working)
-
-**Other**
-- Welcome message
-- Custom message handler
-
-Other commands available in /help message
-
-
-# ToDo
-[![forthebadge](https://forthebadge.com/images/badges/it-works-why.svg)](https://forthebadge.com)
-- [x] better code
-- [x] improve commands performance/exception
-- [x] blacklisted words/urls 
-- [x] more in-chat controls
-- [ ] blacklist
-- [x] night mode
-- [ ] settings command (got headache)
+[You can reach our documentation here!](./docs/home.md)
 
 ## Credits
-[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
 
 Main dev: [@mike_2000](https://t.me/mike_2000)
 
