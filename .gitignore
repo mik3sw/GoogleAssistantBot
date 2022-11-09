@@ -126,3 +126,5 @@ dmypy.json
 # app
 .vsls.json
 .vscode
+
+# custom file
