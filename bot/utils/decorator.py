@@ -2,6 +2,9 @@
 from functools import wraps
 import config
 from time import sleep
+from rich.console import Console
+
+console = Console()
 
 # only people from config.LIST_OF_ADMINS can perform that command
 def restricted(func):
@@ -9,7 +12,7 @@ def restricted(func):
     def wrapped(update, context):
         user_id = update.effective_user.id
         if user_id not in config.LIST_OF_ADMINS:
-            print("Unauthorized access denied for {}.".format(user_id))
+            console.log("Unauthorized access denied for {}.".format(user_id))
             return
         return func(update, context)
     return wrapped
@@ -32,7 +35,7 @@ def ownerbot(func):
     def wrapped(update, context):
         user_id = update.effective_user.id
         if user_id not in config.OWNER_LIST:
-            print("Unauthorized access denied for {}.".format(user_id))
+            cnsole.log("Unauthorized access denied for {}.".format(user_id))
             return
         return func(update, context)
     return wrapped
@@ -48,9 +51,10 @@ def general_admin(func):
             stat = context.bot.get_chat_member(update.message.chat_id, update.effective_user['id'])['status']
         except:
             stat = context.bot.get_chat_member(update.callback_query.message.chat_id, update.callback_query.from_user['id'])['status']
-        print(stat)
-        if stat not in config.TITLES:
-            print("Unauthorized access denied for {}.".format(user_id['id']))
+        if stat in config.TITLES:
+            console.log("Action performed by: {}".format(stat))
+        else:
+            console.log("Unauthorized access denied for {}.".format(user_id['id']))
             return
         return func(update, context)
     return wrapped

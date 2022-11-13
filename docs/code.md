@@ -1,5 +1,8 @@
 # Code
 
+**Home page**: [Home page](./home.md)
+
+**Previous**: [How to use](./howtouse.md)
 
 ## Structure overview
 

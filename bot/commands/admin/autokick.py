@@ -1,9 +1,9 @@
 from utils import decorator
 from telegram.error import TelegramError
-
-
+from errors.log import log
+from config import log_channel
 @decorator.general_admin
-@decorator.cancellacomandi
+#@decorator.cancellacomandi
 def init(update, context):
     """
     This command is executed sending the command:
@@ -26,15 +26,17 @@ def init(update, context):
     update.message.reply_text(#chat_id=update.message.chat_id,
                              text=msg,)
                              #reply_to_message_id=update.message.reply_to_message.message_id)
-
+    context.bot.send_message(chat_id=log_channel , text="🔴 <b>Kick process</b> #kick\n\nChat: {}\nChat_id: {}\nUser_id: <code>{}</code>\nName: {}\nUsername: @{}\n\n<b>Performed by admin</b>: @{}\n\n<b>Kick reason</b>: {}".format(update.message.chat.title, update.message.chat_id, update.message.reply_to_message.from_user.id, update.message.reply_to_message.from_user.first_name, update.message.reply_to_message.from_user.username, update.message.from_user.username, reason), parse_mode='HTML')
+    context.bot.delete_message(update.message.chat_id, update.message.message_id)
     # set delayed action
     def delayed_ban(context, update=update):
         try:
             user_id = update.message.reply_to_message.from_user.id
             context.bot.ban_chat_member(chat_id=update.message.chat.id, user_id=user_id)
             context.bot.unban_chat_member(chat_id=update.message.chat.id, user_id=user_id)
+            
         except TelegramError:
-            print("an error occurred [AUTOKICK] function")
+            log("an error occurred [AUTOKICK] function")
             update.message.reply_test(text="Error during autokick operation")
 
     # schedule action

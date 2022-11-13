@@ -47,10 +47,10 @@ def init(update, context):
     except AttributeError:
         err = '<i>[ERROR] AttributeError -  bad code</i>'
     except TypeError:
-        err = '[ERROR] TypeError - Unknown'
+        #err = '[ERROR] TypeError - Unknown'
         # need to fix this... 
         #err = "TypeError"
-        #err = None
+        err = None
     
     if err != None:
         nomeutente=update.message.from_user.first_name
@@ -65,4 +65,4 @@ def init(update, context):
 
 def error_message(update, context, err, txt, name, username, id, chatid, chat_name):
     log = '\n<i>[LOG] errore: {}</i>'.format(context.error)
-    context.bot.send_message(chat_id=config.log_channel, text = "<b>Resoconto errore</b>\n<b>Chat</b>: [{}][{}]\n<b>Utente</b>: [{}][{}][{}]\n<b>Comando/messaggio</b>:{}\n\n<b>Errori rilevati</b>:\n{}{}".format(chat_name, chatid, id, name, username, txt, err, log), parse_mode='HTML')
+    context.bot.send_message(chat_id=config.log_channel, text = "🟡 <b>Resoconto errore</b>\n<b>Chat</b>: [{}][{}]\n<b>Utente</b>: [{}][{}][{}]\n<b>Comando/messaggio</b>:{}\n\n<b>Errori rilevati</b>:\n{}{}".format(chat_name, chatid, id, name, username, txt, err, log), parse_mode='HTML')

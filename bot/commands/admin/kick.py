@@ -1,5 +1,7 @@
 from utils import decorator
-from config import admin_group
+from config import log_channel
+from errors.log import log
+
 @decorator.general_admin
 #@decorator.cancellacomandi
 def init(update, context):
@@ -16,7 +18,10 @@ def init(update, context):
         mess = ''
         for txt in text:
             mess = mess + ' ' + txt
-        context.bot.send_message(chat_id=admin_group, text="<b>Kick process</b>\n\nUser_id: <code>{}</code>\nName: {}\nUsername: @{}\n\n<b>Performed by admin</b>: @{}\n\n<b>Kick reason</b>: {}".format(update.message.reply_to_message.from_user.id, update.message.reply_to_message.from_user.first_name, update.message.reply_to_message.from_user.username, update.message.from_user.username, mess), parse_mode='HTML')
+        if mess == '':
+            mess = 'not provided'
+        
+        context.bot.send_message(chat_id=log_channel , text="🔴 <b>Kick process</b> #kick\n\nChat: {}\nChat_id: {}\nUser_id: <code>{}</code>\nName: {}\nUsername: @{}\n\n<b>Performed by admin</b>: @{}\n\n<b>Kick reason</b>: {}".format(update.message.chat.title, update.message.chat_id, update.message.reply_to_message.from_user.id, update.message.reply_to_message.from_user.first_name, update.message.reply_to_message.from_user.username, update.message.from_user.username, mess), parse_mode='HTML')
     except:
-        print("an error occurred [KICK] function")
+        log("An error occurred [KICK] function")
         update.message.reply_text("Error during kick operation")

@@ -1,4 +1,5 @@
 from utils import decorator
+from errors.log import log
 
 @decorator.general_admin
 def init(update, context):
@@ -9,7 +10,7 @@ def init(update, context):
 		for txt in text:
 			mess = mess + ' ' + txt
 	except:
-		print('error during [annuncio/saypin]')
+		log('error during [annuncio/saypin]')
 	bot.send_message(update.message.chat_id, text=mess, parse_mode = 'HTML')
 	bot.pin_chat_message(update.message.chat_id, update.message.message_id+1)
 	bot.delete_message(update.message.chat_id, update.message.message_id)
