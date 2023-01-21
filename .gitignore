@@ -129,3 +129,6 @@ dmypy.json
 
 # custom file
 bot/config.py
+
+# Desktop Services Store
+.DS_Store
