@@ -1,4 +1,6 @@
-__all__ = ["kick", "night", "mute", "unmute", "ban", "unban", "pin", "say",
-           "annuncio", "check", "nuke", "leave", "delete", "slow", "autoban", "autokick", "get"]
+__all__ = ["annuncio", "autoban", "autokick", "ban", "check", "delete", "get", "kick", "leave", "mute", "night", "nuke",
+           "pin", "say", "slow", "unban", "unmute"]
 
+from . import (annuncio, autoban, autokick, ban, check, delete, get, kick, leave, mute, night, nuke,
+               pin, say, slow, unban, unmute)
 from commands.admin import *

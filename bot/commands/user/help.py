@@ -1,6 +1,9 @@
+# import modules
 import functions
+from telegram.constants import ParseMode
 
-def init(update, context):
+
+async def init(update, context):
     txt = functions.general.txtReader('help')
-    update.message.reply_text(text=txt, parse_mode='HTML')
-    context.bot.delete_message(update.message.chat_id, update.message.message_id)
+    await update.message.reply_text(text=txt, parse_mode=ParseMode.HTML)
+    await context.bot.delete_message(update.message.chat_id, update.message.message_id)

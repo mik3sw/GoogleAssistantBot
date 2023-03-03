@@ -1,3 +1,4 @@
-__all__ = ["user", "admin","index"]
+__all__ = ["user", "admin", "index"]
 
+from . import user, admin, index
 from commands import *

@@ -1,3 +1,4 @@
-__all__ = ["help", "start", "rules", "me", "source"]
+__all__ = ["help", "me", "rules", "source", "start"]
 
+from . import help, me, rules, source, start
 from commands.user import *

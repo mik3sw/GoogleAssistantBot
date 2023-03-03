@@ -1,13 +1,13 @@
+# import modules
 from utils import decorator
 from configparser import ConfigParser
-from config import admin_group
 
 
 @decorator.general_admin
 #@decorator.cancellacomandi
-def init(update, context):
+async def init(update, context):
     """
-    This command is execute sendong to the bot:
+    This command is executed sending to the bot:
         /slow [options]
 
     Options:
@@ -26,9 +26,8 @@ def init(update, context):
     
 
     # decode command
-    msg = update.message.text.strip().split()
     msg = context.args
-    
+
     # assign values to activate, msg_num and seconds
     if len(msg) == 0:   # case: /slow
         active = '1'
@@ -37,8 +36,8 @@ def init(update, context):
     elif len(msg) == 1:   # case: /slow flag
         if msg[0] == '-ls':
             text = read_file('slowmode.ini', update.message.chat_id, update.message.chat.title)
-            update.message.reply_text(text=text, parse_mode = 'HTML')
-            context.bot.delete_message(update.message.chat_id, update.message.message_id)
+            await update.message.reply_text(text=text, parse_mode = 'HTML')
+            await context.bot.delete_message(update.message.chat_id, update.message.message_id)
             return
         else:
             active = msg[0]
@@ -73,12 +72,11 @@ def init(update, context):
     if 'slowmode_cnf' in context.bot_data:
         del context.bot_data['slowmode_cnf']
     
-    context.bot.delete_message(update.message.chat_id, update.message.message_id)
-
+    await context.bot.delete_message(update.message.chat_id, update.message.message_id)
 
 
 def read_file(file, chat, title):
-    s = ConfigParser();
+    s = ConfigParser()
     s.read(file)
     lst=['active','msg_num','seconds']
     message = f'<b>Slow mode settings</b>\n\n{title}\n{chat}\n\n'

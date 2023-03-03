@@ -1,12 +1,13 @@
+# import modules
 from utils import decorator
 from errors.log import log
 
 
 @decorator.general_admin
 #@decorator.cancellacomandi
-def init(update, context):
+async def init(update, context):
+    bot = context.bot
     try:
-        bot = context.bot
         msg = update.message.reply_to_message
         text = f"""<b>Resoconto messaggio</b>
 <b>Chat [ID]</b>: <code>{update.message.chat_id}</code>
@@ -18,8 +19,8 @@ def init(update, context):
         
 <b>Message [ID]</b>: <code>{msg.message_id}</code>
 <b>Message [text]</b>: <code>{msg.text}</code>"""
-        update.message.reply_text(text, parse_mode='HTML')
-        
+        await update.message.reply_text(text, parse_mode='HTML')
+
     except:
-        bot.delete_message(update.message.chat_id, update.message.message_id)
+        await bot.delete_message(update.message.chat_id, update.message.message_id)
         log("Error during [GET] command")
