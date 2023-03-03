@@ -1,60 +1,44 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler)
-import config, dialogs, errors, plugins, functions
-from telegram import MessageEntity
-from dialogs import misc, rules
-from threading import Thread
-from utils import decorator
-from commands import index
-import os
-import sys
 
+# import modules
+from telegram.ext import ApplicationBuilder, CommandHandler
+from telegram.ext import MessageHandler, filters
+import config
+import dialogs
+import errors
+import plugins
+from commands import index
 
 
 def main():
-    updater = Updater(config.bot_token, use_context=True)
-    dp = updater.dispatcher
-    function = dp.add_handler
-
-    # restart function
-    # ===============================================
-    def stop_and_restart():
-        """Gracefully stop the Updater and replace the current process with a new one"""
-        updater.stop()
-        os.execl(sys.executable, sys.executable, *sys.argv)
-
-    #only the owner of the bot can use restart command
-    @decorator.ownerbot
-    def restart(update, context):
-        update.message.reply_text('<b>[SYSTEM]</b>\n\nThe bot is now restarting...', parse_mode='HTML')
-        Thread(target=stop_and_restart).start()
-    # ===============================================
-
-    # Owner commands
-    function(CommandHandler(["restart", "r"], restart))
+    # initialize bot
+    application = ApplicationBuilder().token(config.bot_token).build()
 
     # Plugins
     # Weather daily report [BETA]
-    function(CommandHandler("weather", plugins.weather.init,pass_args=True,pass_job_queue=True,pass_chat_data=True))
+    application.add_handler(CommandHandler("weather", plugins.weather.init))
 
     # Admin commands
-    index.admin_commands(dp)
+    index.admin_commands(application)
 
-    #User commands
-    index.user_commands(dp)
+    # User commands
+    index.user_commands(application)
 
     # Message Handlers
-    function(MessageHandler(Filters.photo, dialogs.images.init))
-    function(MessageHandler(Filters.status_update.new_chat_members, dialogs.welcome.init))    # Welcome
-    function(MessageHandler(Filters.update.message, dialogs.main.init))                       # Dialogs and chat controls
+    application.add_handler(MessageHandler(filters.PHOTO, dialogs.images.init))
+    application.add_handler(MessageHandler(filters.StatusUpdate.NEW_CHAT_MEMBERS, dialogs.welcome.init))    # Welcome
+    application.add_handler(MessageHandler(filters.UpdateType.MESSAGE, dialogs.main.init))   # Dialogs and chat controls
 
     # Display errors and warnings
-    dp.add_error_handler(errors.log.init)              #console log
-    dp.add_error_handler(errors.callback_error.init)   #channel log
-    updater.start_polling()
-    updater.idle()
+    application.add_error_handler(errors.log.init)              # console log
+    application.add_error_handler(errors.callback_error.init)   # channel log
+
+    # start the BOT
+    application.run_polling()
 
 
+# run the bot
+# -----------
 if __name__ == '__main__':
     main()
