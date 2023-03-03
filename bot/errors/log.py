@@ -1,9 +1,12 @@
+# import modules
 import logging
 from rich.logging import RichHandler
 from rich.console import Console
-#level=logging.INFO
+
+
+# level=logging.INFO
 FORMAT = "%(message)s"
-#FORMAT='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+# FORMAT='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 logging.basicConfig(
     format=FORMAT, 
     level="NOTSET",
@@ -11,13 +14,16 @@ logging.basicConfig(
     handlers=[RichHandler()]
 )
 
-#logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 logger = logging.getLogger("rich")
+
+
 def init(update, context):
     if context.error == "argument of type 'NoneType' is not iterable":
         pass
     else:
         logger.info('[LOG] errore: {}'.format(context.error))
+
 
 def log(msg):
     console = Console()
