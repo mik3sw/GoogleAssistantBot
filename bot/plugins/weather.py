@@ -1,7 +1,9 @@
-import requests, json
+# import modules
+import requests
 import datetime
 import config
 from utils import decorator
+
 
 def timeToEmoji(status):
     emoji = 'test'
@@ -18,7 +20,8 @@ def timeToEmoji(status):
     else:
         emoji = ''
     return emoji
-   
+
+
 def message_builder(cities):
     message = ''
     api_key = config.weather_api
@@ -37,6 +40,7 @@ def message_builder(cities):
         message = message + singular_city
     return message
 
+
 def final_message():
     nord = ['Genova', 'Torino', 'Aosta', 'Milano', 'Trento', 'Venezia', 'Bologna', 'Trieste']
     centro = ['Roma', 'Ancona', 'Firenze', 'Perugia']
@@ -49,15 +53,17 @@ def final_message():
     final = 'Buongiorno gruppo! Ecco il meteo di oggi:\n\n<b>NORD</b>\n{}\n\n<b>CENTRO</b>\n{}\n\n<b>SUD</b>\n{}'.format(message_nord, message_centro, message_sud)
     return final
 
+
 def send_weather(context):
     for x in config.weather_report:
         context.bot.send_message(chat_id = x, text=final_message(), parse_mode= 'HTML')
 
+
 @decorator.ownerbot
-def init(update, context):
+async def init(update, context):
     h = int(context.args[0])
     m = int(context.args[1])
     t = datetime.time(h, m, 00)
     new_job = context.job_queue.run_daily(send_weather, t, days=(0, 1, 2, 3, 4, 5, 6), context=None, name=None)
     context.chat_data['job'] = new_job
-    update.message.reply_text('Weather report setted [DAILY][{}:{}]'.format(h, m))
+    await update.message.reply_text('Weather report setted [DAILY][{}:{}]'.format(h, m))
