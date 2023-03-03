@@ -1,9 +1,10 @@
 from . import urlfilter, bad_words, non_latin_filter, market, admin_tag
-def init(update, context):
-    market.init(update, context)
-    urlfilter.init(update, context)
-    bad_words.init(update, context)
-    non_latin_filter.init(update, context)
-    admin_tag.init(update, context)
+
+async def init(update, context):
+    await market.init(update, context)
+    await urlfilter.init(update, context)
+    await bad_words.init(update, context)
+    await non_latin_filter.init(update, context)
+    await admin_tag.init(update, context)
     
     

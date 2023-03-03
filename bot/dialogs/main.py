@@ -1,4 +1,8 @@
+# import modules
 from dialogs import misc, rules
-def init(update, context):
-    misc.handler.init(update, context)
-    rules.main.init(update, context)
+
+
+# init function
+async def init(update, context):
+    await misc.handler.init(update, context)
+    await rules.main.init(update, context)

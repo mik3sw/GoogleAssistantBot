@@ -4,51 +4,53 @@ from . import random_answer
 from . import answers
 from configparser import ConfigParser
 from telegram import ChatPermissions
+from telegram.constants import ParseMode
 
 
-
-def general(update, context):
+async def general(update, context):
     if update.message.text is not None:
         for x in answers.cases:
             if x in str(update.message.text).lower():
-                update.message.reply_text(str(answers.cases[x]).format(name = update.message.from_user.first_name))
+                await update.message.reply_text(str(answers.cases[x]).format(name = update.message.from_user.first_name))
 
-def cosapensi(update, context):
+
+async def cosapensi(update, context):
     if update.message.text is not None:
         if 'cosa pensi google' in str(update.message.text).lower() or 'google cosa pensi' in str(update.message.text).lower():
             google_is_thinking = random_answer.google_is_thinking
             var_numero = random.randint(1, len(google_is_thinking))
-            update.message.reply_text(google_is_thinking[var_numero],
-                             reply_to_message_id=update.message.message_id, parse_mode='HTML')
+            await update.message.reply_text(google_is_thinking[var_numero],
+                             reply_to_message_id=update.message.message_id, parse_mode=ParseMode.HTML)
 
 
-def cosafai(update, context):
+async def cosafai(update, context):
     if update.message.text is not None:
         if 'che fai google' in str(update.message.text).lower() or 'che stai facendo google' in str(update.message.text).lower() or 'cosa stai facendo google' in str(update.message.text).lower():
             google_is_doing = random_answer.google_is_doing
             var_numero = random.randint(1, len(google_is_doing))
-            update.message.reply_text(google_is_doing[var_numero],
-                             reply_to_message_id=update.message.message_id, parse_mode='HTML')
+            await update.message.reply_text(google_is_doing[var_numero],
+                             reply_to_message_id=update.message.message_id, parse_mode=ParseMode.HTML)
 
 
-def curiosita(update, context):
+async def curiosita(update, context):
     if update.message.text is not None:
         if str(update.message.text).lower() == 'google curiosità':
             google_curiosita = random_answer.google_curiosita
             var_numero = random.randint(1, len(google_curiosita))
-            update.message.reply_text(google_curiosita[var_numero],
-                             reply_to_message_id=update.message.message_id, parse_mode='HTML')
+            await update.message.reply_text(google_curiosita[var_numero],
+                             reply_to_message_id=update.message.message_id, parse_mode=ParseMode.HTML)
 
-def mercatino(update, context):
+
+async def mercatino(update, context):
     if (update.message.text is not None) and (update.message.chat_id != -1001160935294):
         words = ["vendo ", "qualcuno vende "]
         for x in words:
             if str(update.message.text).lower().startswith(x):
                 #context.bot.delete_message(update.message.chat_id, update.message.message_id)
-                context.bot.send_message(update.message.chat_id, text='Ciao <a href="tg://user?id={}\">{}</a>!\n<b>Sembra che tu stia cercando o vendendo qualcosa</b> all\'interno del gruppo.\nPer questo abbiamo un gruppo dedicato!\n\nEccolo qua: t.me/aospitaliashop\n'.format(update.message.from_user.id, update.message.from_user.first_name), parse_mode = 'HTML')
+                context.bot.send_message(update.message.chat_id, text='Ciao <a href="tg://user?id={}\">{}</a>!\n<b>Sembra che tu stia cercando o vendendo qualcosa</b> all\'interno del gruppo.\nPer questo abbiamo un gruppo dedicato!\n\nEccolo qua: t.me/aospitaliashop\n'.format(update.message.from_user.id, update.message.from_user.first_name), parse_mode=ParseMode.HTML)
 
 
-def slowmode_check(update, context):
+async def slowmode_check(update, context):
     # check if config is already in bot_data
     if 'slowmode_cnf' in context.bot_data:
         slowmode_cnf = context.bot_data['slowmode_cnf']
@@ -69,7 +71,8 @@ def slowmode_check(update, context):
 
     # get list of admin
     if 'admins' not in context.chat_data:
-        admins = [ele.user.id for ele in context.bot.get_chat_administrators(update.effective_chat.id) if (ele.user.is_bot is False)]
+        all_admins = await context.bot.get_chat_administrators(update.effective_chat.id)
+        admins = [ele.user.id for ele in all_admins if (ele.user.is_bot is False)]
         context.chat_data['admins'] = admins
 
     # read slowmode parameters
@@ -92,15 +95,16 @@ def slowmode_check(update, context):
                         msg = f"@{update.message.from_user.username} hai superato il limite di "
                     msg += f"{msg_num} messaggi consecutivi\n"
                     msg += f"non potrai scrivere per {seconds} secondi\n"
-                    sent_message = context.bot.send_message(chat_id=update.message.chat_id, text=msg)
+                    sent_message = await context.bot.send_message(chat_id=update.message.chat_id, text=msg,
+                                                                  message_thread_id=update.message.message_thread_id)
 
                     # mute the user
-                    context.bot.restrictChatMember(chat_id=update.message.chat_id,
+                    await context.bot.restrictChatMember(chat_id=update.message.chat_id,
                                                    user_id=update.message.from_user.id,
                                                    permissions=ChatPermissions(can_send_messages=False))
 
                     # unmute function (delayed by 'seconds')
-                    def delayed_unmute(context, update=update, sent_message=sent_message.message_id):
+                    async def delayed_unmute(context, update=update, sent_message=sent_message.message_id):
                         # standard permissions
                         std_permission = ChatPermissions(can_send_messages=True,
                                                          can_send_media_messages=True,
@@ -110,11 +114,11 @@ def slowmode_check(update, context):
                                                          can_invite_users=True)
 
                         # unmute user
-                        context.bot.restrictChatMember(chat_id=update.message.chat_id,
+                        await context.bot.restrictChatMember(chat_id=update.message.chat_id,
                                                        user_id=update.message.from_user.id,
                                                       permissions=std_permission)
                         # clean chat
-                        context.bot.delete_message(chat_id=update.message.chat_id,
+                        await context.bot.delete_message(chat_id=update.message.chat_id,
                                                    message_id=sent_message)
                     # schedule unmute task
                     context.job_queue.run_once(delayed_unmute, int(slowmode_cnf[str(update.message.chat_id)]['seconds']))
@@ -136,12 +140,13 @@ def slowmode_check(update, context):
             context.user_data['last_msg_id'] = update.message.message_id
 
 
-def init(update, context):
-    general(update, context)
-    cosafai(update, context)
-    cosapensi(update, context)
-    curiosita(update, context)
-    mercatino(update, context)
-    slowmode_check(update, context)
-    definisci.init(update, context)
+async def init(update, context):
+    await general(update, context)
+    await cosafai(update, context)
+    await cosapensi(update, context)
+    await curiosita(update, context)
+    await mercatino(update, context)
+    await slowmode_check(update, context)
+    await definisci.init(update, context)
+
     

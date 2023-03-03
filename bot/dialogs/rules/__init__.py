@@ -1,3 +1,4 @@
-__all__ = ["main", "urlfilter", "bad_words", "non_latin_filter", "market", "admin_tag"]
+__all__ = ["admin_tag", "bad_words", "main", "market", "non_latin_filter", "urlfilter"]
 
+from . import admin_tag, bad_words, main, market, non_latin_filter, urlfilter
 from dialogs.rules import *

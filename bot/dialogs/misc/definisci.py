@@ -1,9 +1,10 @@
+# import modules
 import wikipedia as wiki
 from telegram import (InlineKeyboardButton, InlineKeyboardMarkup)
+from telegram.constants import ParseMode
 
 
-
-def init(update, context):
+async def init(update, context):
     if update.message.text is not None:
         if str(update.message.text).lower().startswith("google definisci") or str(update.message.text).lower().startswith("google cerca"):
             bot = context.bot
@@ -22,7 +23,7 @@ def init(update, context):
 
                 text = "<b>{}:</b>\n\n{}".format(title, definizione)
 
-                update.message.reply_text(text, reply_markup=InlineKeyboardMarkup(button_list), parse_mode='HTML')
+                await update.message.reply_text(text, reply_markup=InlineKeyboardMarkup(button_list), parse_mode=ParseMode.HTML)
             except:
-                update.message.reply_text( text="Mi spiace {user} non ho trovato quello che cercavi"
-                                 .format(user=update.message.from_user.first_name))
+                await update.message.reply_text( text="Mi spiace {user} non ho trovato quello che cercavi"
+                                                 .format(user=update.message.from_user.first_name))

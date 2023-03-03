@@ -1,3 +1,4 @@
-__all__ = ["welcome", "misc", "rules", "main", "images"]
+__all__ = ["images", "main", "welcome", "misc", "rules"]
 
+from . import images, main, welcome, misc, rules
 from dialogs import *
