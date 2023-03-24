@@ -13,9 +13,13 @@ def custom_spam(capt):
 async def init(update, context):
     if update.message.photo is not None:
         capt = update.message.caption
-        china = bool(re.findall(r'[\u4e00-\u9fff]+', capt))
-        arabic = bool(re.findall(r'[\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufbc1]|[\ufbd3-\ufd3f]|[\ufd50-\ufd8f]|[\ufd92-\ufdc7]|[\ufe70-\ufefc]|[\uFDF0-\uFDFD]+',capt))
-        russia = bool(re.search('[а-яА-Я]', capt))
+        try:
+            china = bool(re.findall(r'[\u4e00-\u9fff]+', capt))
+            arabic = bool(re.findall(r'[\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufbc1]|[\ufbd3-\ufd3f]|[\ufd50-\ufd8f]|[\ufd92-\ufdc7]|[\ufe70-\ufefc]|[\uFDF0-\uFDFD]+',capt))
+            russia = bool(re.search('[а-яА-Я]', capt))
+        except TypeError:
+            china, arabic, russia = False, False, False
+
         spam = custom_spam(str(capt).lower())
         
         if china or arabic or russia or spam:
