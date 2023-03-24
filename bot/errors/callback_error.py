@@ -19,7 +19,11 @@ logger = logging.getLogger("rich")
 
 
 async def init(update, context):
-    txt = update.message.text
+    try:
+        txt = update.message.text
+    except AttributeError:
+        txt = None
+
     err = '[error]'
     try:
         raise context.error
@@ -55,7 +59,7 @@ async def init(update, context):
         # err = "TypeError"
         err = None
     
-    if err != None:
+    if err is not None:
         nomeutente=update.message.from_user.first_name
         username="@"+update.message.from_user.username
         id=update.message.from_user.id
