@@ -5,6 +5,7 @@ from . import answers
 from configparser import ConfigParser
 from telegram import ChatPermissions
 from telegram.constants import ParseMode
+import config
 
 
 async def general(update, context):
@@ -42,12 +43,19 @@ async def curiosita(update, context):
 
 
 async def mercatino(update, context):
-    if (update.message.text is not None) and (update.message.chat_id != -1001160935294):
-        words = ["vendo ", "qualcuno vende "]
-        for x in words:
-            if str(update.message.text).lower().startswith(x):
-                #context.bot.delete_message(update.message.chat_id, update.message.message_id)
-                context.bot.send_message(update.message.chat_id, text='Ciao <a href="tg://user?id={}\">{}</a>!\n<b>Sembra che tu stia cercando o vendendo qualcosa</b> all\'interno del gruppo.\nPer questo abbiamo un gruppo dedicato!\n\nEccolo qua: t.me/aospitaliashop\n'.format(update.message.from_user.id, update.message.from_user.first_name), parse_mode=ParseMode.HTML)
+    if (update.message.text is not None) and (update.message.chat_id != config.mercatino):
+        words = ["-vendo-", "-vende-", "-vendi-", "-vendere-"]
+        for w in words:
+            text_message = "-" + str(update.message.text).lower().replace("\n", " ").replace(" ", "-").replace("?", "") + "-"
+            if w in text_message:
+                await update.message.reply_text(text='Ciao <a href="tg://user?id={}\">{}</a>!\n'
+                                                     '<b>Sembra che tu stia cercando o vendendo qualcosa</b> all\'interno del gruppo.\n'
+                                                     'Per questo abbiamo un gruppo dedicato!\n\n'
+                                                     'Eccolo qua: https://t.me/aospitaliashop\n\n'
+                                                     'Per postare un annucio usa questo bot: @aospitaliashopbot\n\n'
+                                                     'N.B. e comunque eventuali trattative vanno gestite in privato!'.format(update.message.from_user.id, update.message.from_user.first_name),
+                                                reply_to_message_id=update.message.message_id, parse_mode=ParseMode.HTML,
+                                                disable_web_page_preview=True)
 
 
 async def slowmode_check(update, context):
