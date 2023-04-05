@@ -60,12 +60,15 @@ async def init(update, context):
         err = None
     
     if err is not None:
-        nomeutente=update.message.from_user.first_name
-        username="@"+update.message.from_user.username
-        id=update.message.from_user.id
-        chat_id = update.message.chat_id
-        chat_name = update.message.chat.title
-        await error_message(update, context, err, txt, nomeutente, username, id, chat_id, chat_name)
+        if hasattr(update, 'message'):
+            nomeutente = update.message.from_user.first_name
+            username = "@"+update.message.from_user.username
+            id = update.message.from_user.id
+            chat_id = update.message.chat_id
+            chat_name = update.message.chat.title
+            await error_message(update, context, err, txt, nomeutente, username, id, chat_id, chat_name)
+        else:
+            pass
         
 
 # logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
