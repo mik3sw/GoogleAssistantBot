@@ -50,9 +50,9 @@ async def mercatino(update, context):
             if w in text_message:
                 await update.message.reply_text(text='Ciao <a href="tg://user?id={}\">{}</a>!\n'
                                                      '<b>Sembra che tu stia cercando o vendendo qualcosa</b> all\'interno del gruppo.\n'
-                                                     'Per questo abbiamo un gruppo dedicato!\n\n'
-                                                     'Eccolo qua: https://t.me/aospitaliashop\n\n'
-                                                     'Per postare un annucio usa questo bot: @aospitaliashopbot\n\n'
+                                                     'Per questo abbiamo un topic dedicato '
+                                                     "all'interno del gruppo @googlepixelit .\n\n"
+                                                     'Per postare un annucio abbiamo un bot dedicato: @aospitaliashopbot\n\n'
                                                      'N.B. e comunque eventuali trattative vanno gestite in privato!'.format(update.message.from_user.id, update.message.from_user.first_name),
                                                 reply_to_message_id=update.message.message_id, parse_mode=ParseMode.HTML,
                                                 disable_web_page_preview=True)
