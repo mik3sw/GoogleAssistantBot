@@ -23,7 +23,10 @@ async def init(update, context):
                 username = "@" + update.message.from_user.username
             except TypeError:
                 username = update.message.from_user.name
-            await context.bot.send_message(update.message.chat_id, text=f"{username}\nLink bloccato, per prevenire lo spam eliminiamo i link t.me, usa la funzione di telegram per creare hyperlink.")
+            await context.bot.send_message(update.message.chat_id,
+                                           text=f"{username}\nLink bloccato, per prevenire lo spam eliminiamo i link t.me, "
+                                                f"usa la funzione di telegram per creare hyperlink.",
+                                           message_thread_id=update.message.message_thread_id)
 
             await context.bot.send_message(config.admin_group, text="(DEBUG MESSAGE)\nIl seguente messaggio e' stato bloccato:\n\n{}".format(update.message.text))
             await context.bot.delete_message(update.message.chat_id, update.message.message_id)
