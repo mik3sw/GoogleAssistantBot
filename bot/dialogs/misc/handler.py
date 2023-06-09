@@ -43,7 +43,7 @@ async def curiosita(update, context):
 
 
 async def mercatino(update, context):
-    if (update.message.text is not None) and (update.message.chat_id != config.mercatino):
+    if update.message.text is not None:
         words = ["-vendo-", "-vende-", "-vendi-", "-vendere-"]
         for w in words:
             text_message = "-" + str(update.message.text).lower().replace("\n", " ").replace(" ", "-").replace("?", "") + "-"
