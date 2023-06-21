@@ -31,5 +31,7 @@ url_denylist = ["t.me"]
 url_whitelist = ["t.me/googlepixelit", "t.me/aospitalia", "t.me/aospitaliashop", "t.me/pixelwatchitalia", "t.me/googlepixelitchannel"]
 
 # ids
-mercatino = -12345678
-admin_group = -1234567
+group = {'admin': {'id': -100111111111},
+         'pixel': {'id': -100222222222, 'main_topic': 123456},
+         'macos': {'id': -100333333333},
+         'foss': {'id': -100444444444}}

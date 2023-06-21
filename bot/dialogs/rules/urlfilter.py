@@ -28,5 +28,5 @@ async def init(update, context):
                                                 f"usa la funzione di telegram per creare hyperlink.",
                                            message_thread_id=update.message.message_thread_id)
 
-            await context.bot.send_message(config.admin_group, text="(DEBUG MESSAGE)\nIl seguente messaggio e' stato bloccato:\n\n{}".format(update.message.text))
+            await context.bot.send_message(config.group['admin']['id'], text="(DEBUG MESSAGE)\nIl seguente messaggio e' stato bloccato:\n\n{}".format(update.message.text))
             await context.bot.delete_message(update.message.chat_id, update.message.message_id)

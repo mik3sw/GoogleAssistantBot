@@ -1,4 +1,4 @@
-from config import admin_group
+from config import group
 
 
 async def init(update, context):
@@ -17,8 +17,8 @@ async def init(update, context):
             msg += f"Gruppo: {update.message.chat.title}\n"
             msg += f"link: {update.message.link}"
 
-            notification_message = await context.bot.send_message(chat_id=admin_group, text=msg)
-            await context.bot.pin_chat_message(chat_id=admin_group,
+            notification_message = await context.bot.send_message(chat_id=group['admin']['id'], text=msg)
+            await context.bot.pin_chat_message(chat_id=group['admin']['id'],
                                          message_id=notification_message.message_id,
                                          disable_notification=False)
         

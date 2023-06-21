@@ -1,6 +1,6 @@
 # import modules
 import re
-from config import admin_group
+from config import group
 from telegram.constants import ParseMode
 
 
@@ -26,7 +26,7 @@ async def init(update, context):
             # caption with banned characters
             await context.bot.delete_message(update.message.chat_id, update.message.message_id)
             await context.bot.ban_chat_member(update.message.chat_id,update.message.from_user.id)
-            await context.bot.send_message(admin_group,text ="Banned image detected!\n"
+            await context.bot.send_message(group['admin']['id'],text ="Banned image detected!\n"
                                                              "[{}][{}][@{}] Banned and message deleted!".format(update.message.from_user.id,
                                                                                                                 update.message.from_user.first_name,
                                                                                                                 update.message.from_user.username),
