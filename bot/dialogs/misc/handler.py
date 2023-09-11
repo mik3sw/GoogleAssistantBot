@@ -115,11 +115,8 @@ async def slowmode_check(update, context):
                     async def delayed_unmute(context, update=update, sent_message=sent_message.message_id):
                         # standard permissions
                         std_permission = ChatPermissions(can_send_messages=True,
-                                                         can_send_media_messages=True,
-                                                         can_send_polls=True,
-                                                         can_send_other_messages=True,
-                                                         can_add_web_page_previews=True,
-                                                         can_invite_users=True)
+                                                       can_send_other_messages=True,
+                                                       can_add_web_page_previews=True)
 
                         # unmute user
                         await context.bot.restrictChatMember(chat_id=update.message.chat_id,

@@ -10,12 +10,7 @@ async def init(update, context):
 
     try:
         await bot.restrict_chat_member(update.message.chat_id,update.message.reply_to_message.from_user.id,
-                                     ChatPermissions(can_send_messages=False,
-                                                     can_send_media_messages=False,
-                                                     can_send_polls=False,
-                                                     can_send_other_messages=False,
-                                                     can_add_web_page_previews=False,
-                                                     can_invite_users=False),
+                                     ChatPermissions(can_send_messages=False),
                                      until_date=datetime.datetime.now() + datetime.timedelta(days=1))
 
         await update.message.reply_text(text="<b>Mute process</b>\n\nUser_id: <code>{}</code>"

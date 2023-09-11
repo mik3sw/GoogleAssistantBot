@@ -12,11 +12,9 @@ async def init(update, context):
     try:
         await bot.restrict_chat_member(update.message.chat_id,update.message.reply_to_message.from_user.id,
                                        ChatPermissions(can_send_messages=True,
-                                                       can_send_media_messages=True,
-                                                       can_send_polls=True,
                                                        can_send_other_messages=True,
-                                                       can_add_web_page_previews=True,
-                                                       can_invite_users=True))
+                                                       can_add_web_page_previews=True))
+        
         await update.message.reply_text(text="<b>Unmute process</b>\n\n"
                                              "User_id: <code>{}</code>\n"
                                              "Name: {}\n"
